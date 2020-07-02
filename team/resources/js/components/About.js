@@ -3,7 +3,12 @@ import React from 'react';
 function About() {
     return (
 
-        <div>a</div>
+        <div>
+            <h1>
+                git teating.OK
+            </h1>
+        </div>
+        
 
     )
 }
