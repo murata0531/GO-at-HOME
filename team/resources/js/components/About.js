@@ -5,7 +5,7 @@ function About() {
 
         <div>
             <h1>
-                git teating.OK
+                git testing.OK
             </h1>
         </div>
         

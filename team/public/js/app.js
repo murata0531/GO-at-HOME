@@ -70575,7 +70575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function About() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "a");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "git testing.OK"));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (About);
@@ -71021,8 +71021,8 @@ function UserDetail(props) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/c/Users/2180020.MAETEL/Desktop/Team/team/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/c/Users/2180020.MAETEL/Desktop/Team/team/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/Users/2180020.MAETEL/Desktop/Team/2020_U22_TeamDeveropment/team/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/2180020.MAETEL/Desktop/Team/2020_U22_TeamDeveropment/team/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
