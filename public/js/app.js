@@ -70003,11 +70003,26 @@ var Home = /*#__PURE__*/function (_React$Component) {
         value: event.target.value
       });
       var btn3 = document.getElementById('btn3');
+      var btn2 = document.getElementById('btn2');
 
-      if (event.target.value == '') {
+      if (event.target.value == '' && btn2.value == '') {
         btn3.disabled = "disabled";
         btn3.style.backgroundColor = "gray";
-      } else {
+      } else if (event.target.value != '' || btn2.value != '') {
+        btn3.disabled = "";
+        btn3.style.backgroundColor = "#00AC97";
+      }
+    }
+  }, {
+    key: "filehandleChange",
+    value: function filehandleChange() {
+      var btn3 = document.getElementById('btn3');
+      var btn2 = document.getElementById('btn2');
+
+      if (event.target.value == '' && btn2.value == '') {
+        btn3.disabled = "disabled";
+        btn3.style.backgroundColor = "gray";
+      } else if (event.target.value != '' || btn2.value != '') {
         btn3.disabled = "";
         btn3.style.backgroundColor = "#00AC97";
       }
@@ -70062,7 +70077,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "d-flex align-items-center justify-content-between p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subname p-2 font-weight-bold"
-      }, first_family.family_name), Object.keys(family_user).map(function (key) {
+      }, first_family.family_name + "<家族>"), Object.keys(family_user).map(function (key) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "users p-2 font-weight-bold",
           key: key
@@ -70101,7 +70116,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary col-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "btn2",
-        type: "file"
+        type: "file",
+        onChange: this.filehandleChange
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70123,6 +70139,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
           var aicon = icon;
           var userid = user_id;
           var btn3 = document.getElementById('btn3');
+          alert("a");
           var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
           var now = new Date();
           database.ref(room).push({

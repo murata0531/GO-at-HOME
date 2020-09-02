@@ -16,10 +16,28 @@ export default class Home extends React.Component {
     handleChange(event) {
         this.setState({ value: event.target.value });
         var btn3 = document.getElementById('btn3');
-        if (event.target.value == '') {
+        let btn2 = document.getElementById('btn2');
+
+        if (event.target.value == '' && btn2.value == '') {
             btn3.disabled = "disabled";
             btn3.style.backgroundColor = "gray";
-        } else {
+
+        } else if (event.target.value != '' || btn2.value != '') {
+
+            btn3.disabled = "";
+            btn3.style.backgroundColor = "#00AC97";
+        }
+    }
+
+    filehandleChange() {
+        var btn3 = document.getElementById('btn3');
+        let btn2 = document.getElementById('btn2');
+
+        if (event.target.value == '' && btn2.value == '') {
+            btn3.disabled = "disabled";
+            btn3.style.backgroundColor = "gray";
+
+        } else if (event.target.value != '' || btn2.value != '') {
             btn3.disabled = "";
             btn3.style.backgroundColor = "#00AC97";
         }
@@ -80,8 +98,8 @@ export default class Home extends React.Component {
                                     <div className="users p-2 font-weight-bold" key={key}>
                                         <img src={family_user[key].user_icon} width="30" height="30" className="rounded-circle align-middle img-responsive"></img>&nbsp;{family_user[key].tuzukigara_name}
                                     </div>
-                                  ))
-                                  
+                                ))
+
                             }
                             <Link to="/home/exexample">
                                 <div className="p-2 font-weight-bold"><i className="setting fas fa-cog"></i></div>
@@ -104,21 +122,20 @@ export default class Home extends React.Component {
                         <div className="form-inline col">
                             <button id="btn1" type="submit" className="btn btn-primary col-2"><i className="fas fa-video"></i></button>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
-                            <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" ></input><i className='fas fa-folder-open'></i></label>
+                            <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" onChange={this.filehandleChange}></input><i className='fas fa-folder-open'></i></label>
                             <div className="form-group col-6">
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={this.state.value} onChange={this.handleChange}></textarea>
                             </div>
                             <button id="btn3" type="submit" className="btn btn-primary col-2" onClick={
                                 function () {
-                                    
+
                                     var database = firebase.database();
                                     let room = "family" + first_family.id;
                                     const aname = name;
                                     const aicon = icon;
                                     const userid = user_id;
                                     var btn3 = document.getElementById('btn3');
-        
-            
+
                                     const exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
 
                                     var now = new Date();
