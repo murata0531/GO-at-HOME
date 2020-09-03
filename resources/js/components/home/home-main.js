@@ -150,23 +150,47 @@ export default class Home extends React.Component {
                                 function () {
 
                                     var database = firebase.database();
+                                    
                                     let room = "family" + first_family.id;
                                     const aname = name;
                                     const aicon = icon;
                                     const userid = user_id;
                                     var btn3 = document.getElementById('btn3');
+                                    let btn2= document.getElementById('btn2');
 
                                     const exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
 
                                     var now = new Date();
 
-                                    database.ref(room).push({
-                                        uid: userid,
-                                        icon: aicon,
-                                        name: aname,
-                                        message: exampleFormControlTextarea1.value,
-                                        date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
-                                    });
+                                    if(btn2.files.length <= 0){
+                                        database.ref(room).push({
+                                            uid: userid,
+                                            icon: aicon,
+                                            name: aname,
+                                            message: exampleFormControlTextarea1.value,
+                                            isfile: 'nothing',
+                                            date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+                                        });
+                                    }else {
+
+                                        var file = now + btn2.files[0].name;
+                                        var storageRef = firebase.storage().ref().child('images/' + file);
+
+                                        storageRef.put(btn2.files[0]).then(function(snapshot) {
+                                        alert('アップロードしました');
+                                        let tu = document.getElementById('review');
+                                        tu.innerHTML = '';
+                                        });
+
+                                        database.ref(room).push({
+                                            uid: userid,
+                                            icon: aicon,
+                                            name: aname,
+                                            message: exampleFormControlTextarea1.value,
+                                            isfile: file,
+                                            date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+                                        });
+                                    }
 
                                     exampleFormControlTextarea1.value = "";
                                     btn3.disabled = "disabled";

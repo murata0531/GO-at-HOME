@@ -260,6 +260,7 @@
 
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
