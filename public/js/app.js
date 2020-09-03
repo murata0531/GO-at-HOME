@@ -70045,24 +70045,54 @@ var Home = /*#__PURE__*/function (_React$Component) {
         var k = data.key;
         var str = "";
 
-        if (v.uid == userid) {
-          // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-          str += '<div class="opponent">';
-          str += '<div class="faceicon">';
-          str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
-          str += '<div class="message_box m-2">';
-          str += '<div class="message_content p-3">';
-          str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-          str += '<div class="clear"></div>';
+        if (v.isfile == 'nothing') {
+          if (v.uid == userid) {
+            // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+            str += '<div class="opponent">';
+            str += '<div class="faceicon">';
+            str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
+            str += '<div class="message_box m-2">';
+            str += '<div class="message_content p-3">';
+            str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+            str += '<div class="clear"></div>';
+          } else {
+            // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+            str += '<div class="myself">';
+            str += '<div class="faceicon">';
+            str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+            str += '<div class="message_box m-2">';
+            str += '<div class="message_content p-3">';
+            str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+            str += '<div class="clear"></div>';
+          }
         } else {
-          // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-          str += '<div class="myself">';
-          str += '<div class="faceicon">';
-          str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-          str += '<div class="message_box m-2">';
-          str += '<div class="message_content p-3">';
-          str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-          str += '<div class="clear"></div>';
+          gs: //chat-1b8c5.appspot.com/images/Thu Sep 03 2020 22:16:18 GMT+0900 (日本標準時)kkkk37471.jpg
+          var storage = firebase.storage();
+
+          var pathReference = storage.ref().child('images/' + v.isfile);
+          pathReference.getDownloadURL().then(function (url) {
+            console.dir(url);
+
+            if (v.uid == userid) {
+              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+              str += '<div class="opponent">';
+              str += '<div class="faceicon">';
+              str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
+              str += '<div class="message_box m-2">';
+              str += '<div class="message_content p-3">';
+              str += '<div class="message_text"><img src="' + url + '"></div></div></div></div>';
+              str += '<div class="clear"></div>';
+            } else {
+              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+              str += '<div class="myself">';
+              str += '<div class="faceicon">';
+              str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+              str += '<div class="message_box m-2">';
+              str += '<div class="message_content p-3">';
+              str += '<div class="message_text"><img src="' + url + '"></div></div></div></div>';
+              str += '<div class="clear"></div>';
+            }
+          });
         } // str += '<div class="text">日時：' + v.date + '</div>';
         // str += '<div class="text">メッセージ：' + v.message + '</div><hr>';
 
@@ -70161,23 +70191,34 @@ var Home = /*#__PURE__*/function (_React$Component) {
               date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
             });
           } else {
-            var file = btn2.files[0].name + now;
-            var storageRef = firebase.storage().ref().child('images/' + file);
-            storageRef.put(btn2.files[0]).then(function (snapshot) {
-              alert('アップロードしました');
-            });
-            database.ref(room).push({
-              uid: userid,
-              icon: aicon,
-              name: aname,
-              message: exampleFormControlTextarea1.value,
-              isfile: file,
-              date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+            var file = now + btn2.files[0].name;
+            var storageRef = firebase.storage().ref();
+            var uploadTask = storageRef.child('images/' + file).put(btn2.files[0]);
+            uploadTask.on('state_changed', function (snapshot) {// Observe state change events such as progress, pause, and resume
+              // See below for more detail
+            }, function (error) {// Handle unsuccessful uploads
+            }, function () {
+              // Handle successful uploads on complete
+              // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+              var downloadURL = uploadTask.snapshot.downloadURL;
+              alert(downloadURL);
+              database.ref(room).push({
+                uid: userid,
+                icon: aicon,
+                name: aname,
+                message: exampleFormControlTextarea1.value,
+                isfile: file,
+                date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+              });
+              var tu = document.getElementById('review');
+              tu.innerHTML = '';
             });
           }
 
           exampleFormControlTextarea1.value = "";
           btn3.disabled = "disabled";
+          btn3.style.backgroundColor = "gray";
+          btn2.value = '';
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-paper-plane"
