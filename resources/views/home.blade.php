@@ -12,6 +12,8 @@
         {{-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> --}}
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
         
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
         <style>
             /* header部分ここから↓ */
             .box1 {
@@ -172,6 +174,27 @@
             .box5 .clear {
                 clear: both;
             }
+
+            #review table{
+
+                position: fixed;
+                /*基準を画面の左上に*/
+                top: 60%;
+                left: 40%;
+                width:200px;
+                height:auto;
+                margin:0;
+            }
+
+            #review img {
+                object-fit: cover;
+                width: 200px;
+            }
+
+            #review input {
+                text-align:center;
+                width:100%;
+            }
             .box5 #send {
                 position: absolute;
                 bottom: 0;
@@ -185,7 +208,7 @@
                 border: 1px solid #ccc;
                 border-radius: 5px;
                 -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
-                        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
+                box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
             }
             /* 会話部分ここまで↑ */
             /* 会話送信部分ここから↓ */
@@ -311,12 +334,28 @@
             var first_family = @json($first_family);
             var family_user = @json($family_user);
             
+            function func2(){
+                
+                let btn2 = document.getElementById('btn2');
+                let btn3 = document.getElementById('btn3');
+                let tu = document.getElementById('review');
+                let exampleFormControlTextarea1 = document.getElementById('exampleFormControlTextarea1');
+                tu.innerHTML = '';
+                btn2.value = '';
+
+                if(exampleFormControlTextarea1.value == ''){
+                    btn3.disabled = "disabled";
+                    btn3.style.backgroundColor = "gray";
+                }
+                alert(btn2.files.length);
+            }
+
+            
         </script>
 
         
         <script src="{{asset('/js/app.js')}}"></script>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
         

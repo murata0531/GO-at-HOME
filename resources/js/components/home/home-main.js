@@ -32,12 +32,31 @@ export default class Home extends React.Component {
     filehandleChange() {
         var btn3 = document.getElementById('btn3');
         let btn2 = document.getElementById('btn2');
+        let review = document.getElementById('review');
+        let reviewurl;
 
         if (event.target.value == '' && btn2.value == '') {
+
             btn3.disabled = "disabled";
             btn3.style.backgroundColor = "gray";
 
         } else if (event.target.value != '' || btn2.value != '') {
+
+            if(btn2.value != ''){
+
+                var reader = new FileReader();
+                let str ='';
+
+                reader.readAsDataURL(btn2.files[0]);
+
+                reader.onload = function() {
+                    reviewurl = reader.result;
+
+                    str += '<table border="1"><tr><td><img src=' + reviewurl + '></td></tr>';
+                    str += '<tr><td><input type="button" id="resetfile" value="削除" onclick="func2()"></td></tr></table>';
+                    review.innerHTML += str;
+                  }
+            }
             btn3.disabled = "";
             btn3.style.backgroundColor = "#00AC97";
         }
@@ -118,11 +137,12 @@ export default class Home extends React.Component {
                     </div>
                     {/* <!-- {{-- 会話部分ここまで↑ --}}
                     {{-- 会話送信部分ここから↓ --}} --> */}
+                    <div id="review"></div>
                     <div id="send" className="col p-2">
                         <div className="form-inline col">
                             <button id="btn1" type="submit" className="btn btn-primary col-2"><i className="fas fa-video"></i></button>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
-                            <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" onChange={this.filehandleChange}></input><i className='fas fa-folder-open'></i></label>
+                            <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
                             <div className="form-group col-6">
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={this.state.value} onChange={this.handleChange}></textarea>
                             </div>

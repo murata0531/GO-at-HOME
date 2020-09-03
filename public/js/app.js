@@ -70018,11 +70018,26 @@ var Home = /*#__PURE__*/function (_React$Component) {
     value: function filehandleChange() {
       var btn3 = document.getElementById('btn3');
       var btn2 = document.getElementById('btn2');
+      var review = document.getElementById('review');
+      var reviewurl;
 
       if (event.target.value == '' && btn2.value == '') {
         btn3.disabled = "disabled";
         btn3.style.backgroundColor = "gray";
       } else if (event.target.value != '' || btn2.value != '') {
+        if (btn2.value != '') {
+          var reader = new FileReader();
+          var str = '';
+          reader.readAsDataURL(btn2.files[0]);
+
+          reader.onload = function () {
+            reviewurl = reader.result;
+            str += '<table border="1"><tr><td><img src=' + reviewurl + '></td></tr>';
+            str += '<tr><td><input type="button" id="resetfile" value="削除" onclick="func2()"></td></tr></table>';
+            review.innerHTML += str;
+          };
+        }
+
         btn3.disabled = "";
         btn3.style.backgroundColor = "#00AC97";
       }
@@ -70099,6 +70114,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
         id: "messageLine",
         className: "p-2"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "review"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "send",
         className: "col p-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70117,7 +70134,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "btn2",
         type: "file",
-        onChange: this.filehandleChange
+        onChange: this.filehandleChange,
+        accept: "image/*"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70139,7 +70157,6 @@ var Home = /*#__PURE__*/function (_React$Component) {
           var aicon = icon;
           var userid = user_id;
           var btn3 = document.getElementById('btn3');
-          alert("a");
           var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
           var now = new Date();
           database.ref(room).push({
