@@ -215,7 +215,7 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-users"></i></span>
-                                    <select class="relationship w-100" name="relations[0]" id="relations[0]" required>
+                                    <select class="relationship w-100" name="relations[]" id="relations[]" required>
                                         <option selected disabled="disabled">続柄</option>
                                         <option value="father">父</option>
                                         <option value="mother">母</option>
@@ -310,7 +310,6 @@
                             .find('input, select').each(function(idx, obj) {
                             $(obj).attr({
                             id: $(obj).attr('id').replace(/\[[0-9]\]+$/, '[' + frm_cnt + ']'),
-                            name: $(obj).attr('name').replace(/\[[0-9]\]+$/, '[' + frm_cnt + ']')
                             });
                         });
                         }

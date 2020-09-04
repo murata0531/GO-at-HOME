@@ -60,22 +60,22 @@ class RegisterController extends Controller
         if($data['inlineRadioOptions'] == 'option1'){
 
             return Validator::make($data, [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'name.*' => ['required', 'string', 'max:255'],
+                'email.*' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+                'password.*' => ['required', 'string', 'min:8', 'confirmed'],
                 'family-name' => ['required'],
                 // 'family-id' => ['required'],
-                'relations' => ['required'],
+                'relations.*' => ['required'],
             ]);
         }else {
 
             return Validator::make($data, [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'name.*' => ['required', 'string', 'max:255'],
+                'email.*' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+                'password.*' => ['required', 'string', 'min:8', 'confirmed'],
                 // 'family-name' => ['required'],
                 'family-id' => ['required', 'exists:families,id'],
-                'relations' => ['required'],
+                'relations.*' => ['required'],
             ]);
         }
         
@@ -95,57 +95,60 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
 
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        
+        for($i = count($data) -1; $i >= 0; $i--){
 
-        $sdata = '';
-
-        switch ($data['relations']){
-
-            case 'father' : $sdata = 1;
-                break;
-            case 'mother' : $sdata = 2;
-                break;
-            case 'son' : $sdata = 3;
-                break;
-            case 'daughter' : $sdata = 4;
-                break;
-            case 'grandpa' : $sdata = 5;
-                break;
-            case 'grandmo' : $sdata = 6;
-                break;
-        };
-
-
-
-        if($data['inlineRadioOptions'] == 'option1'){
-
-            $family = Family::create([
-                'family_name' => $data['family-name'],
-            ]);
-
-            Member::create([
-
-                'user_id' => $user->id,
-                'family_id' => $family->id,
-                'tuzukigara_id' => $sdata,
-    
+            $user = User::create([
+                'name' => $data['name'][$i],
+                'email' => $data['email'][$i],
+                'password' => Hash::make($data['password'][$i]),
             ]);
             
-        }else {
-
-
-            Member::create([
-
-                'user_id' => $user->id,
-                'family_id' => $data['family-id'],
-                'tuzukigara_id' => $sdata,
     
-            ]);
+            $sdata = '';
+    
+            switch ($data['relations'][$i]){
+    
+                case 'father' : $sdata = 1;
+                    break;
+                case 'mother' : $sdata = 2;
+                    break;
+                case 'son' : $sdata = 3;
+                    break;
+                case 'daughter' : $sdata = 4;
+                    break;
+                case 'grandpa' : $sdata = 5;
+                    break;
+                case 'grandmo' : $sdata = 6;
+                    break;
+            };
+    
+    
+    
+            if($data['inlineRadioOptions'] == 'option1'){
+    
+                $family = Family::create([
+                    'family_name' => $data['family-name'],
+                ]);
+    
+                Member::create([
+    
+                    'user_id' => $user->id,
+                    'family_id' => $family->id,
+                    'tuzukigara_id' => $sdata,
+        
+                ]);
+                
+            }else {
+    
+    
+                Member::create([
+    
+                    'user_id' => $user->id,
+                    'family_id' => $data['family-id'],
+                    'tuzukigara_id' => $sdata,
+        
+                ]);
+            }
         }
         
 

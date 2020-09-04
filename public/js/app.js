@@ -70040,7 +70040,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       var userid = user_id;
       var output = document.getElementById("messageLine"); //受信処理
 
-      database.ref(room).on("child_added", function (data) {
+      setTimeout(database.ref(room).on("child_added", function (data) {
         var v = data.val();
         var k = data.key;
         var str = "";
@@ -70138,7 +70138,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
             }
           }
         }
-      });
+      }), 5000);
     }
   }, {
     key: "render",
