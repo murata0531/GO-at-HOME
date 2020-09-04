@@ -230,7 +230,7 @@
 
                                 <div class="form-group"id="fclose" style="display: none;">
                                     <span class="input-icon"><i class="fas fa-user-minus"></i></span>
-                                    <input class="fami btn-primary btn-outline-success w-100" type="button" value="削除" id="deletekazoku">
+                                    <button class="fami btn-primary btn-outline-success w-100"  id="deletekazoku">削除</button>
                                 </div>
 
                             </div>
@@ -285,9 +285,10 @@
                     .hide()
                     .insertAfter(original)
                     .attr('id', 'form_block[' + frm_cnt + ']') // クローンのid属性を変更。
-                    .end(); // 一度適用する
-                    
-
+                    .end() // 一度適用する
+                    .find('input, textarea').each(function(idx, obj) {
+                        $(obj).val('');
+                    });
                     // clone取得
                     var clone = $('#form_block\\[' + frm_cnt + '\\]');
                     clone.children('#fclose').show();
