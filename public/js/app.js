@@ -70055,6 +70055,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
             str += '<div class="message_content p-3">';
             str += '<div class="message_text">' + v.message + '</div></div></div></div>';
             str += '<div class="clear"></div>';
+            output.innerHTML += str;
           } else {
             // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
             str += '<div class="myself">';
@@ -70064,24 +70065,22 @@ var Home = /*#__PURE__*/function (_React$Component) {
             str += '<div class="message_content p-3">';
             str += '<div class="message_text">' + v.message + '</div></div></div></div>';
             str += '<div class="clear"></div>';
+            output.innerHTML += str;
           }
         } else {
-          gs: //chat-1b8c5.appspot.com/images/Thu Sep 03 2020 22:16:18 GMT+0900 (日本標準時)kkkk37471.jpg
+          // gs://chat-1b8c5.appspot.com/images/Thu Sep 03 2020 22:16:18 GMT+0900 (日本標準時)kkkk37471.jpg
           var storage = firebase.storage();
-
-          var pathReference = storage.ref().child('images/' + v.isfile);
-          pathReference.getDownloadURL().then(function (url) {
-            console.dir(url);
-
+          var pathReference = storage.ref();
+          pathReference.child(v.isfile).getDownloadURL().then(function (url) {
             if (v.uid == userid) {
-              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
               str += '<div class="opponent">';
               str += '<div class="faceicon">';
               str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
               str += '<div class="message_box m-2">';
               str += '<div class="message_content p-3">';
-              str += '<div class="message_text"><img src="' + url + '"></div></div></div></div>';
+              str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div></div>';
               str += '<div class="clear"></div>';
+              output.innerHTML += str;
             } else {
               // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
               str += '<div class="myself">';
@@ -70089,15 +70088,56 @@ var Home = /*#__PURE__*/function (_React$Component) {
               str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
               str += '<div class="message_box m-2">';
               str += '<div class="message_content p-3">';
-              str += '<div class="message_text"><img src="' + url + '"></div></div></div></div>';
+              str += '<div class="message_text"><a href=' + url + ' target="_blank" rel="noopener noreferrer"><img src=' + url + '></a></div></div></div></div>';
               str += '<div class="clear"></div>';
+              output.innerHTML += str;
+            }
+          })["catch"](function (error) {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case 'storage/object-not-found':
+                alert('File doesn\'t exist');
+                break;
+
+              case 'storage/unauthorized':
+                alert('User doesn\'t have permission to access the object');
+                break;
+
+              case 'storage/canceled':
+                alert('User canceled the upload');
+                break;
+
+              case 'storage/unknown':
+                alert('Unknown error occurred, inspect the server response');
+                break;
             }
           });
-        } // str += '<div class="text">日時：' + v.date + '</div>';
-        // str += '<div class="text">メッセージ：' + v.message + '</div><hr>';
 
-
-        output.innerHTML += str;
+          if (v.message != '') {
+            if (v.uid == userid) {
+              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+              str += '<div class="opponent">';
+              str += '<div class="faceicon">';
+              str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
+              str += '<div class="message_box m-2">';
+              str += '<div class="message_content p-3">';
+              str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+              str += '<div class="clear"></div>';
+              output.innerHTML += str;
+            } else {
+              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+              str += '<div class="myself">';
+              str += '<div class="faceicon">';
+              str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+              str += '<div class="message_box m-2">';
+              str += '<div class="message_content p-3">';
+              str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+              str += '<div class="clear"></div>';
+              output.innerHTML += str;
+            }
+          }
+        }
       });
     }
   }, {
@@ -70191,17 +70231,15 @@ var Home = /*#__PURE__*/function (_React$Component) {
               date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
             });
           } else {
-            var file = now + btn2.files[0].name;
+            var file = 'images/' + now + btn2.files[0].name;
             var storageRef = firebase.storage().ref();
-            var uploadTask = storageRef.child('images/' + file).put(btn2.files[0]);
+            var uploadTask = storageRef.child(file).put(btn2.files[0]);
             uploadTask.on('state_changed', function (snapshot) {// Observe state change events such as progress, pause, and resume
               // See below for more detail
             }, function (error) {// Handle unsuccessful uploads
             }, function () {
               // Handle successful uploads on complete
               // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-              var downloadURL = uploadTask.snapshot.downloadURL;
-              alert(downloadURL);
               database.ref(room).push({
                 uid: userid,
                 icon: aicon,
@@ -70212,6 +70250,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
               });
               var tu = document.getElementById('review');
               tu.innerHTML = '';
+              alert(file + "をアップロード");
             });
           }
 

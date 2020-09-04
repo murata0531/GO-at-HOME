@@ -186,10 +186,7 @@
                 margin:0;
             }
 
-            message_text img {
-                height:auto;
-                width:500px;
-            }
+            
             #review img {
                 object-fit: cover;
                 width: 200px;
