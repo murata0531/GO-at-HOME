@@ -254,6 +254,9 @@
                             <br>
 
                             <input class="btn signin w-50" type="submit" value="登 録">
+                            <ul class="form-options">
+                                <li><a href="/login">アカウントをお持ちの方はこちら<i class="fas fa-arrow-right"></i></a></li>
+                            </ul>
                         </form>
                     </div>
                 </div>
