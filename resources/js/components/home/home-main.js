@@ -71,9 +71,11 @@ export default class Home extends React.Component {
         var storage = firebase.storage();
         var pathReference = storage.ref();
 
-
+        var prevTask = Promise.resolve();
+        
         //受信処理
-        database.ref(room).on("child_added", function (data) {
+        database.ref(room).on("child_added",  (data) => {
+            prevTask = prevTask.finally(async () => {
             const v = data.val();
             const k = data.key;
 
@@ -110,7 +112,7 @@ export default class Home extends React.Component {
 
                 let str = "";
 
-                pathReference.child(v.isfile).getDownloadURL().then(function (url) {
+                await pathReference.child(v.isfile).getDownloadURL().then(function (url) {
 
 
                     if (v.uid != userid) {
@@ -161,6 +163,8 @@ export default class Home extends React.Component {
                     }
                 });
             }
+
+        });
         });
     }
 
