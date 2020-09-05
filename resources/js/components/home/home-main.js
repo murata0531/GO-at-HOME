@@ -68,67 +68,73 @@ export default class Home extends React.Component {
         let room = "family" + first_family.id;
         const userid = user_id;
         const output = document.getElementById("messageLine");
+        var storage = firebase.storage();
+        var pathReference = storage.ref();
+
 
         //受信処理
         database.ref(room).on("child_added", function (data) {
             const v = data.val();
             const k = data.key;
-            let str = "";
+            
 
-            if (v.isfile == 'nothing') {
+            if ((v.message != "" && v.isfile != "nothing") || (v.message != "" && v.isfile == "nothing")) {
+
+                let str ="";
+
                 if (v.uid != userid) {
-                    // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                     str += '<div class="opponent">';
                     str += '<div class="faceicon">';
-                    str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
+                    str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
                     str += '<div class="message_box m-2">';
                     str += '<div class="message_content p-3">';
-                    str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+                    str += '<div class="message_text">' + v.message + '</div></div></div>';
+                    str += '<p class="dateTime float-right">' + v.date + '</div>';
                     str += '<div class="clear"></div>';
                     output.innerHTML += str;
 
-                } else {
+                } else if(v.uid == userid){
                     // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                     str += '<div class="myself">';
                     str += '<div class="faceicon">';
-                    str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                    str += '<div class="message_box m-2">';
+                    str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+                    str += '<div class="message_box m-2" style="background-color:lime;">';
                     str += '<div class="message_content p-3">';
-                    str += '<div class="message_text">' + v.message + '</div></div></div></div>';
+                    str += '<div class="message_text">' + v.message + '</div></div></div>';
+                    str += '<p class="dateTime float-left">' + v.date + '</div>';
                     str += '<div class="clear"></div>';
                     output.innerHTML += str;
                 }
-            } else {
+            }
+            
+            if((v.isfile != "nothing" && v.message == "") || (v.isfile != "nothing" && v.message != "") ) {
 
-                // gs://chat-1b8c5.appspot.com/images/Thu Sep 03 2020 22:16:18 GMT+0900 (日本標準時)kkkk37471.jpg
-                var storage = firebase.storage();
-                var pathReference = storage.ref();
-
+                let str = "";
 
                 pathReference.child(v.isfile).getDownloadURL().then(function (url) {
 
-
+                    
                     if (v.uid != userid) {
-
                         str += '<div class="opponent">';
                         str += '<div class="faceicon">';
-                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
+                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
                         str += '<div class="message_box m-2">';
                         str += '<div class="message_content p-3">';
-                        str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div></div>';
+                        str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
+                        str += '<p class="dateTime float-right">' + v.date + '</div>';
                         str += '<div class="clear"></div>';
-
                         output.innerHTML += str;
-                    } else {
+
+                    } else if(v.uid == userid){
                         // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                         str += '<div class="myself">';
                         str += '<div class="faceicon">';
-                        str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                        str += '<div class="message_box m-2">';
+                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+                        str += '<div class="message_box m-2" style="background-color:lime;">';
                         str += '<div class="message_content p-3">';
-                        str += '<div class="message_text"><a href=' + url + ' target="_blank" rel="noopener noreferrer"><img src=' + url + '></a></div></div></div></div>';
+                        str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
+                        str += '<p class="dateTime float-left">' + v.date + '</div>';
                         str += '<div class="clear"></div>';
-
                         output.innerHTML += str;
                     }
 
@@ -155,39 +161,11 @@ export default class Home extends React.Component {
                             break;
                     }
                 });
-
-                if (v.message != '') {
-                    if (v.uid != userid) {
-                        // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-                        str += '<div class="opponent">';
-                        str += '<div class="faceicon">';
-                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
-                        str += '<div class="message_box m-2">';
-                        str += '<div class="message_content p-3">';
-                        str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-                        str += '<div class="clear"></div>';
-                        output.innerHTML += str;
-
-                    } else {
-                        // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-                        str += '<div class="myself">';
-                        str += '<div class="faceicon">';
-                        str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                        str += '<div class="message_box m-2">';
-                        str += '<div class="message_content p-3">';
-                        str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-                        str += '<div class="clear"></div>';
-                        output.innerHTML += str;
-                    }
-                }
             }
-
         });
     }
 
     render() {
-
-        var fstring = JSON.stringify(family_user);
 
         return (
 
@@ -262,6 +240,7 @@ export default class Home extends React.Component {
                                         var storageRef = firebase.storage().ref();
                                         var uploadTask = storageRef.child(file).put(btn2.files[0]);
 
+                                        let fmassage = exampleFormControlTextarea1.value;
                                         uploadTask.on('state_changed',
                                             function (snapshot) {
                                                 // Observe state change events such as progress, pause, and resume
@@ -276,7 +255,7 @@ export default class Home extends React.Component {
                                                     uid: userid,
                                                     icon: aicon,
                                                     name: aname,
-                                                    message: exampleFormControlTextarea1.value,
+                                                    message: fmassage,
                                                     isfile: file,
                                                     date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
                                                 });
@@ -284,10 +263,8 @@ export default class Home extends React.Component {
                                                 let tu = document.getElementById('review');
                                                 tu.innerHTML = '';
 
-                                                alert(file + "をアップロード");
                                             }
                                         );
-
                                     }
 
                                     exampleFormControlTextarea1.value = "";
