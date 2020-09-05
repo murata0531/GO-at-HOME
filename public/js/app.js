@@ -70098,8 +70098,6 @@ var Home = /*#__PURE__*/function (_React$Component) {
               _str += '<div class="clear"></div>';
               output.innerHTML += _str;
             }
-
-            alert("a");
           })["catch"](function (error) {
             // A full list of error codes is available at
             // https://firebase.google.com/docs/storage/web/handle-errors
@@ -70234,7 +70232,6 @@ var Home = /*#__PURE__*/function (_React$Component) {
               });
               var tu = document.getElementById('review');
               tu.innerHTML = '';
-              alert(file + "をアップロード");
             });
           }
 
@@ -70265,7 +70262,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Private; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -70297,15 +70294,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var Private = /*#__PURE__*/function (_React$Component) {
-  _inherits(Private, _React$Component);
+var Home = /*#__PURE__*/function (_React$Component) {
+  _inherits(Home, _React$Component);
 
-  var _super = _createSuper(Private);
+  var _super = _createSuper(Home);
 
-  function Private(props) {
+  function Home(props) {
     var _this;
 
-    _classCallCheck(this, Private);
+    _classCallCheck(this, Home);
 
     _this = _super.call(this, props);
     _this.state = {
@@ -70315,18 +70312,48 @@ var Private = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _createClass(Private, [{
+  _createClass(Home, [{
     key: "handleChange",
     value: function handleChange(event) {
       this.setState({
         value: event.target.value
       });
       var btn3 = document.getElementById('btn3');
+      var btn2 = document.getElementById('btn2');
 
-      if (event.target.value == '') {
+      if (event.target.value == '' && btn2.value == '') {
         btn3.disabled = "disabled";
         btn3.style.backgroundColor = "gray";
-      } else {
+      } else if (event.target.value != '' || btn2.value != '') {
+        btn3.disabled = "";
+        btn3.style.backgroundColor = "#00AC97";
+      }
+    }
+  }, {
+    key: "filehandleChange",
+    value: function filehandleChange() {
+      var btn3 = document.getElementById('btn3');
+      var btn2 = document.getElementById('btn2');
+      var review = document.getElementById('review');
+      var reviewurl;
+
+      if (event.target.value == '' && btn2.value == '') {
+        btn3.disabled = "disabled";
+        btn3.style.backgroundColor = "gray";
+      } else if (event.target.value != '' || btn2.value != '') {
+        if (btn2.value != '') {
+          var reader = new FileReader();
+          var str = '';
+          reader.readAsDataURL(btn2.files[0]);
+
+          reader.onload = function () {
+            reviewurl = reader.result;
+            str += '<table border="1"><tr><td><img src=' + reviewurl + '></td></tr>';
+            str += '<tr><td><input type="button" id="resetfile" value="削除" onclick="func2()"></td></tr></table>';
+            review.innerHTML += str;
+          };
+        }
+
         btn3.disabled = "";
         btn3.style.backgroundColor = "#00AC97";
       }
@@ -70336,7 +70363,7 @@ var Private = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var param;
 
-      if (1 < document.location.search.length) {
+      if (document.location.search.length > 1) {
         // 最初の1文字 (?記号) を除いた文字列を取得する
         var query = document.location.search.substring(1); // クエリの区切り記号 (&) で文字列を配列に分割する
 
@@ -70364,45 +70391,96 @@ var Private = /*#__PURE__*/function (_React$Component) {
         var room = param.privateid + "private" + userid;
       }
 
-      var output = document.getElementById("messageLine"); //受信処理
+      var output = document.getElementById("messageLine");
+      var storage = firebase.storage();
+      var pathReference = storage.ref(); //受信処理
 
       database.ref(room).on("child_added", function (data) {
         var v = data.val();
         var k = data.key;
-        var str = "";
 
-        if (v.uid == userid) {
-          // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-          str += '<div class="opponent">';
-          str += '<div class="faceicon">';
-          str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
-          str += '<div class="message_box m-2">';
-          str += '<div class="message_content p-3">';
-          str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-          str += '<div class="clear"></div>';
-        } else {
-          // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
-          str += '<div class="myself">';
-          str += '<div class="faceicon">';
-          str += '<img src="../icon/user_blue.png" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-          str += '<div class="message_box m-2">';
-          str += '<div class="message_content p-3">';
-          str += '<div class="message_text">' + v.message + '</div></div></div></div>';
-          str += '<div class="clear"></div>';
-        } // str += '<div class="text">日時：' + v.date + '</div>';
-        // str += '<div class="text">メッセージ：' + v.message + '</div><hr>';
+        if (v.message != "" && v.isfile != "nothing" || v.message != "" && v.isfile == "nothing") {
+          var str = "";
 
+          if (v.uid != userid) {
+            str += '<div class="opponent">';
+            str += '<div class="faceicon">';
+            str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+            str += '<div class="message_box m-2">';
+            str += '<div class="message_content p-3">';
+            str += '<div class="message_text">' + v.message + '</div></div></div>';
+            str += '<p class="dateTime float-right">' + v.date + '</div>';
+            str += '<div class="clear"></div>';
+            output.innerHTML += str;
+          } else if (v.uid == userid) {
+            // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+            str += '<div class="myself">';
+            str += '<div class="faceicon">';
+            str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+            str += '<div class="message_box m-2" style="background-color:lime;">';
+            str += '<div class="message_content p-3">';
+            str += '<div class="message_text">' + v.message + '</div></div></div>';
+            str += '<p class="dateTime float-left">' + v.date + '</div>';
+            str += '<div class="clear"></div>';
+            output.innerHTML += str;
+          }
+        }
 
-        output.innerHTML += str;
+        if (v.isfile != "nothing" && v.message == "" || v.isfile != "nothing" && v.message != "") {
+          var _str = "";
+          pathReference.child(v.isfile).getDownloadURL().then(function (url) {
+            if (v.uid != userid) {
+              _str += '<div class="opponent">';
+              _str += '<div class="faceicon">';
+              _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+              _str += '<div class="message_box m-2">';
+              _str += '<div class="message_content p-3">';
+              _str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
+              _str += '<p class="dateTime float-right">' + v.date + '</div>';
+              _str += '<div class="clear"></div>';
+              output.innerHTML += _str;
+            } else if (v.uid == userid) {
+              // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+              _str += '<div class="myself">';
+              _str += '<div class="faceicon">';
+              _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
+              _str += '<div class="message_box m-2" style="background-color:lime;">';
+              _str += '<div class="message_content p-3">';
+              _str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
+              _str += '<p class="dateTime float-left">' + v.date + '</div>';
+              _str += '<div class="clear"></div>';
+              output.innerHTML += _str;
+            }
+          })["catch"](function (error) {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case 'storage/object-not-found':
+                alert('File doesn\'t exist');
+                break;
+
+              case 'storage/unauthorized':
+                alert('User doesn\'t have permission to access the object');
+                break;
+
+              case 'storage/canceled':
+                alert('User canceled the upload');
+                break;
+
+              case 'storage/unknown':
+                alert('Unknown error occurred, inspect the server response');
+                break;
+            }
+          });
+        }
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var fstring = JSON.stringify(family_user);
       var param;
 
-      if (1 < document.location.search.length) {
+      if (document.location.search.length > 1) {
         // 最初の1文字 (?記号) を除いた文字列を取得する
         var query = document.location.search.substring(1); // クエリの区切り記号 (&) で文字列を配列に分割する
 
@@ -70448,6 +70526,8 @@ var Private = /*#__PURE__*/function (_React$Component) {
         id: "messageLine",
         className: "p-2"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "review"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "send",
         className: "col p-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70465,7 +70545,9 @@ var Private = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary col-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "btn2",
-        type: "file"
+        type: "file",
+        onChange: this.filehandleChange,
+        accept: "image/*"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70482,7 +70564,6 @@ var Private = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary col-2",
         onClick: function onClick() {
           var database = firebase.database();
-          var userid = user_id;
 
           if (userid > param.privateid) {
             var room = userid + "private" + param.privateid;
@@ -70492,18 +70573,49 @@ var Private = /*#__PURE__*/function (_React$Component) {
 
           var aname = name;
           var aicon = icon;
+          var userid = user_id;
           var btn3 = document.getElementById('btn3');
+          var btn2 = document.getElementById('btn2');
           var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
           var now = new Date();
-          database.ref(room).push({
-            uid: userid,
-            icon: aicon,
-            name: aname,
-            message: exampleFormControlTextarea1.value,
-            date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
-          });
+
+          if (btn2.files.length <= 0) {
+            database.ref(room).push({
+              uid: userid,
+              icon: aicon,
+              name: aname,
+              message: exampleFormControlTextarea1.value,
+              isfile: 'nothing',
+              date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+            });
+          } else {
+            var file = 'images/' + now + btn2.files[0].name;
+            var storageRef = firebase.storage().ref();
+            var uploadTask = storageRef.child(file).put(btn2.files[0]);
+            var fmassage = exampleFormControlTextarea1.value;
+            uploadTask.on('state_changed', function (snapshot) {// Observe state change events such as progress, pause, and resume
+              // See below for more detail
+            }, function (error) {// Handle unsuccessful uploads
+            }, function () {
+              // Handle successful uploads on complete
+              // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+              database.ref(room).push({
+                uid: userid,
+                icon: aicon,
+                name: aname,
+                message: fmassage,
+                isfile: file,
+                date: now.getFullYear() + '年' + eval(now.getMonth() + 1) + '月' + now.getDate() + '日' + now.getHours() + '時' + now.getMinutes() + '分'
+              });
+              var tu = document.getElementById('review');
+              tu.innerHTML = '';
+            });
+          }
+
           exampleFormControlTextarea1.value = "";
           btn3.disabled = "disabled";
+          btn3.style.backgroundColor = "gray";
+          btn2.value = '';
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-paper-plane"
@@ -70511,7 +70623,7 @@ var Private = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return Private;
+  return Home;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 

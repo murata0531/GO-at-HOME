@@ -76,11 +76,10 @@ export default class Home extends React.Component {
         database.ref(room).on("child_added", function (data) {
             const v = data.val();
             const k = data.key;
-            
 
             if ((v.message != "" && v.isfile != "nothing") || (v.message != "" && v.isfile == "nothing")) {
 
-                let str ="";
+                let str = "";
 
                 if (v.uid != userid) {
                     str += '<div class="opponent">';
@@ -93,7 +92,7 @@ export default class Home extends React.Component {
                     str += '<div class="clear"></div>';
                     output.innerHTML += str;
 
-                } else if(v.uid == userid){
+                } else if (v.uid == userid) {
                     // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                     str += '<div class="myself">';
                     str += '<div class="faceicon">';
@@ -106,14 +105,14 @@ export default class Home extends React.Component {
                     output.innerHTML += str;
                 }
             }
-            
-            if((v.isfile != "nothing" && v.message == "") || (v.isfile != "nothing" && v.message != "") ) {
+
+            if ((v.isfile != "nothing" && v.message == "") || (v.isfile != "nothing" && v.message != "")) {
 
                 let str = "";
 
                 pathReference.child(v.isfile).getDownloadURL().then(function (url) {
 
-                    
+
                     if (v.uid != userid) {
                         str += '<div class="opponent">';
                         str += '<div class="faceicon">';
@@ -125,7 +124,7 @@ export default class Home extends React.Component {
                         str += '<div class="clear"></div>';
                         output.innerHTML += str;
 
-                    } else if(v.uid == userid){
+                    } else if (v.uid == userid) {
                         // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                         str += '<div class="myself">';
                         str += '<div class="faceicon">';
