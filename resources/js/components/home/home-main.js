@@ -76,7 +76,7 @@ export default class Home extends React.Component {
             let str = "";
 
             if (v.isfile == 'nothing') {
-                if (v.uid == userid) {
+                if (v.uid != userid) {
                     // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                     str += '<div class="opponent">';
                     str += '<div class="faceicon">';
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                 pathReference.child(v.isfile).getDownloadURL().then(function (url) {
 
 
-                    if (v.uid == userid) {
+                    if (v.uid != userid) {
 
                         str += '<div class="opponent">';
                         str += '<div class="faceicon">';
@@ -157,7 +157,7 @@ export default class Home extends React.Component {
                 });
 
                 if (v.message != '') {
-                    if (v.uid == userid) {
+                    if (v.uid != userid) {
                         // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                         str += '<div class="opponent">';
                         str += '<div class="faceicon">';

@@ -70040,13 +70040,13 @@ var Home = /*#__PURE__*/function (_React$Component) {
       var userid = user_id;
       var output = document.getElementById("messageLine"); //受信処理
 
-      setTimeout(database.ref(room).on("child_added", function (data) {
+      database.ref(room).on("child_added", function (data) {
         var v = data.val();
         var k = data.key;
         var str = "";
 
         if (v.isfile == 'nothing') {
-          if (v.uid == userid) {
+          if (v.uid != userid) {
             // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
             str += '<div class="opponent">';
             str += '<div class="faceicon">';
@@ -70072,7 +70072,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
           var storage = firebase.storage();
           var pathReference = storage.ref();
           pathReference.child(v.isfile).getDownloadURL().then(function (url) {
-            if (v.uid == userid) {
+            if (v.uid != userid) {
               str += '<div class="opponent">';
               str += '<div class="faceicon">';
               str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"></div>';
@@ -70115,7 +70115,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
           });
 
           if (v.message != '') {
-            if (v.uid == userid) {
+            if (v.uid != userid) {
               // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
               str += '<div class="opponent">';
               str += '<div class="faceicon">';
@@ -70138,7 +70138,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
             }
           }
         }
-      }), 5000);
+      });
     }
   }, {
     key: "render",
