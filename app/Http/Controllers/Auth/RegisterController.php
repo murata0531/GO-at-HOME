@@ -57,25 +57,43 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         if($data['inlineRadioOptions'] == 'option1'){
 
             return Validator::make($data, [
                 'name.*' => ['required', 'string', 'max:255'],
                 'email.*' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-                'password.*' => ['required', 'string', 'min:8', 'confirmed'],
+                'password.*' => ['required', 'string', 'min:8'],
+                'password_confirmation.*' => ['required','same:password.*'],
                 'family-name' => ['required'],
                 // 'family-id' => ['required'],
                 'relations.*' => ['required'],
+            ],[
+
+                'email.*.unique' => "無効なメールアドレスです",
+                // 'password.*.regex' => "複雑なパスワードを入力してください",
+                'password.*.min' => "パスワードは8文字以上で入力してください",
+                'password_confirmation.*.same' => "パスワードが一致しません",
+                // 'relations.*.not_regex' => "選択してください",
+            
             ]);
         }else {
 
             return Validator::make($data, [
                 'name.*' => ['required', 'string', 'max:255'],
                 'email.*' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-                'password.*' => ['required', 'string', 'min:8', 'confirmed'],
+                'password.*' => ['required', 'string', 'min:8'],
+                'password_confirmation.*' => ['required','same:password.*'],
                 // 'family-name' => ['required'],
                 'family-id' => ['required', 'exists:families,id'],
                 'relations.*' => ['required'],
+            ],[
+
+                'email.*.unique' => "無効なメールアドレスです",
+                'password.*.min' => "パスワードは8文字以上で入力してください",
+                'password_confirmation.*.same' => "パスワードが一致しません",
+                // 'relations.*.not_regex' => "選択してください",
+            
             ]);
         }
         
@@ -95,7 +113,7 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
 
-        for($i = count($data) -1; $i >= 0; $i--){
+        for($i = count($data['name']) -1; $i >= 0; $i--){
 
             $user = User::create([
                 'name' => $data['name'][$i],

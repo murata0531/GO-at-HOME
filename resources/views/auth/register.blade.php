@@ -183,8 +183,8 @@
                                 <h3 class="title" style="color:#CC0000;">家族</h3>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-user"></i></span>
-                                    <input class="form-control @error('name[]') is-invalid @enderror" name="name[]" id="name[]" value="{{ old('name[]') }}" type="text"  placeholder="なまえ" required>
-                                    @error('name[]')
+                                    <input class="form-control @error('name.0') is-invalid @enderror" name="name[]" id="name[]" value="{{ old('name.0') }}" type="text"  placeholder="なまえ" required>
+                                    @error('name.0')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -192,8 +192,8 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-at"></i></span>
-                                    <input class="form-control @error('email[]') is-invalid @enderror" type="email" name="email[]" id="email[]" value="{{ old('email[]') }}" placeholder="メールアドレス" required>
-                                    @error('email[]')
+                                    <input class="form-control @error('email.0') is-invalid @enderror" type="email" name="email[]" id="email[]" value="{{ old('email.0') }}" placeholder="メールアドレス" required>
+                                    @error('email.0')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -201,8 +201,8 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                    <input class="form-control @error('password[]') is-invalid @enderror" type="password" name="password[]" id="password[]" placeholder="パスワード" required>
-                                    @error('password[]')
+                                    <input class="form-control @error('password.0') is-invalid @enderror" type="password" name="password[]" id="password[]" placeholder="パスワード" required>
+                                    @error('password.0')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -210,13 +210,17 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                    <input class="form-control" type="password" name="password_confirmation[]" id="password_confirmation[]" placeholder="パスワード再入力" required>
-                                    
+                                    <input class="form-control @error('password_confirmation.0') is-invalid @enderror" type="password" name="password_confirmation[]" id="password_confirmation[]" placeholder="パスワード再入力" required>
+                                    @error('password_confirmation.0')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-users"></i></span>
-                                    <select class="relationship w-100" name="relations[]" id="relations[]" required>
-                                        <option selected disabled="disabled">続柄</option>
+                                    <select class="relationship w-100  @error('relations.0') is-invalid @enderror" name="relations[]" id="relations[]" required>
+                                        <option selected disabled="disabled"value="no">続柄</option>
                                         <option value="father">父</option>
                                         <option value="mother">母</option>
                                         <option value="son">息子</option>
@@ -224,6 +228,11 @@
                                         <option value="grandpa">祖父</option>
                                         <option value="grandmo">祖母</option>
                                     </select>
+                                    @error('relations.0')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <hr>
