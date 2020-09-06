@@ -128,10 +128,18 @@
                 /* box4のバックカラー */
                 background-color: #f5f5f5;
                 /* /box4のバックカラー */
+                color: #fff;
+                font-size:x-large;
+            }
+            #home-box4 {
+                background-color:#33FF00;
+            }
+            #private-box4 {
+                background-color: #33CCFF;
             }
             .box4 .setting {
                 height: 100%;
-                font-size: x-large;
+                font-size: large;
             }
             /* subheader部分ここまで↑ */
             /* 会話部分ここから↓ */
@@ -257,6 +265,9 @@
             }
             /* 会話送信部分ここまで↑ */
             
+            a:link  { color : black; }
+            a:visited  { color : black; }
+
         </style>
         
         <title>go @ home</title>

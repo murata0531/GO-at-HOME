@@ -173,10 +173,10 @@ export default class Home extends React.Component {
         return (
 
             <div>
-                <div className="box4 col-lg">
+                <div className="box4 col-lg" id="home-box4">
                     <div className="container">
                         <div className="d-flex align-items-center justify-content-between p-0">
-                            <div className="subname p-2 font-weight-bold">{first_family.family_name + "<家族>"}</div>
+                            <div className="subname p-2 font-weight-bold" ><i class="fa fa-users pr-2"></i>{first_family.family_name + "<家族>"}</div>
                             {
                                 Object.keys(family_user).map(key => (
                                     <div className="users p-2 font-weight-bold" key={key}>

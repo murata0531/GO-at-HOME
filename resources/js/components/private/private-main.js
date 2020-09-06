@@ -225,17 +225,17 @@ export default class Home extends React.Component {
         return (
 
             <div>
-                <div className="box4 col-lg">
+                <div className="box4 col-lg" id="private-box4">
                     <div className="container">
-                        <div className="d-flex align-items-center justify-content-between p-0">
-                            <div className="subname p-2 font-weight-bold">プライベート</div>
+                        <div className="d-flex align-items-center justify-content-between p-0" >
+                            <div className="subname p-2 font-weight-bold"><i class="fas fa-user pr-2"></i>プライベート</div>
 
                             <div className="users p-2 font-weight-bold">
                                 <img src={param.privateicon} width="30" height="30" className="rounded-circle align-middle img-responsive"></img>&nbsp;{param.privatename}
                             </div>
 
                             <Link to="/home/exexample">
-                                <div className="p-2 font-weight-bold"><i className="setting fas fa-cog"></i></div>
+                                <div className="p-2 font-weight-bold"><i className="setting fas fa-cog pr-2"></i></div>
                             </Link>
 
                         </div>
