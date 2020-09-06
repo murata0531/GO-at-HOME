@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
 
-        @media screen and (min-width: 800px){
             html, body {
                 margin: 0;
                 padding: 0;
@@ -121,7 +120,27 @@
             .btn:hover {
                 background-color: #444;
             }
-        }
+            .form_horizontal .form-options {
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-weight: bold;
+                
+            }
+            .form_horizontal .form-options li a {
+                letter-spacing: 1px;
+                margin: 0 0 10px;
+                display: block;
+                color
+            }
+            a:link, a:visited, a:hover, a:active {
+                color: #fff;
+            }
+            .form_horizontal .form-options li a i {
+                font-size: 14px;
+            }
+        
 
         </style>
 

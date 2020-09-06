@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from "./home/home-main.js";
 import Private from "./private/private-main.js";
+import UserSetting from "./setting/user-setting.js";
 
 
 export default class App extends Component {
@@ -16,6 +17,7 @@ export default class App extends Component {
             <Switch>
             <Route path="/home" exact component={Home} />
             <Route path="/home/private" component={Private} />
+            <Route path="/home/usersetting" component={UserSetting} />
             </Switch>
             </div>
         </Router>

@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -138,6 +139,13 @@
             }
             .box5::-webkit-scrollbar {
                 display: none;
+            }
+            .box5 .user-setting {
+                overflow-y:scroll;
+                -ms-overflow-style:none;
+            }
+            .box5 .user-setting::webkit-scrollbar {
+                display:none;
             }
             .box5 .messageLine {
                 overflow: auto;
@@ -296,7 +304,7 @@
                             </a>
                         </div>
                         <div class="p-2 d-flex align-items-center">
-                            <a href="#"><i class="room-setting fas fa-ellipsis-v p-2"></i></a>
+                            <a href="/home/usersetting"><i class="room-setting fas fa-ellipsis-v p-2"></i></a>
                         </div>
                     </div>
                     <div class="form-group">
