@@ -125,6 +125,9 @@
             .box4 {
                 height: 50px;
                 border-bottom: 1px solid #777;
+                /* box4のバックカラー */
+                background-color: #f5f5f5;
+                /* /box4のバックカラー */
             }
             .box4 .setting {
                 height: 100%;
@@ -326,6 +329,9 @@
                             <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name}}</a></li>
                         @endforeach
                         </ul>
+                        <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
+                        <a href="#"><input type="button" id="menu_bar03" class="accordion" /></a>
+                    
                     </div>
                 </div>
                 <!-- {{-- menu(左の画面)部分ここまで↑ --}} -->
