@@ -70825,7 +70825,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                     if (v.uid != userid) {
                       str += '<div class="opponent">';
                       str += '<div class="faceicon">';
-                      str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                      str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                       str += '<div class="message_box m-2">';
                       str += '<div class="message_content p-3">';
                       str += '<div class="message_text">' + v.message + '</div></div></div>';
@@ -70833,7 +70833,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       str += '<div class="clear"></div>';
                       output.innerHTML += str;
                     } else if (v.uid == userid) {
-                      // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                      // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       str += '<div class="myself">';
                       str += '<div class="faceicon">';
                       str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
@@ -70857,7 +70857,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                     if (v.uid != userid) {
                       _str += '<div class="opponent">';
                       _str += '<div class="faceicon">';
-                      _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                      _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                       _str += '<div class="message_box m-2">';
                       _str += '<div class="message_content p-3">';
                       _str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
@@ -70865,7 +70865,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       _str += '<div class="clear"></div>';
                       output.innerHTML += _str;
                     } else if (v.uid == userid) {
-                      // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                      // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       _str += '<div class="myself">';
                       _str += '<div class="faceicon">';
                       _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
@@ -70920,7 +70920,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "subname p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-        "class": "fa fa-users pr-2"
+        className: "fa fa-users pr-2"
       }), first_family.family_name + "<家族>"), Object.keys(family_user).map(function (key) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "users p-2 font-weight-bold",
@@ -71466,8 +71466,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71506,8 +71504,6 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
   _createClass(UserSetting, [{
     key: "render",
     value: function render() {
-      var _React$createElement;
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "box4 col-lg",
         id: "user-setting-box4"
@@ -71525,10 +71521,11 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         className: "box5 mt-4 mx-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "class col-8 mx-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", (_React$createElement = {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "user-setting",
-        method: "get"
-      }, _defineProperty(_React$createElement, "className", "user-setting"), _defineProperty(_React$createElement, "encType", "multipart/form-data"), _React$createElement), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        method: "get",
+        encType: "multipart/form-data"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "hidden",
         name: "_token",
         value: document.querySelector('meta[name="csrf-token"').getAttribute('content')
@@ -71578,18 +71575,17 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         className: "form-control",
         id: user.password,
         readOnly: true
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-primary float-left bg-secondary border-0",
-        onClick: function onClick() {
-          history.back();
-        }
-      }, "\u623B\u308B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/home/"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary float-left bg-secondary border-0"
+      }, "\u623B\u308B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary float-right border-0",
         id: "setting-sub"
-      }, "\u5909\u66F4\u3059\u308B"))))));
+      }, "\u5909\u66F4\u3059\u308B")))));
     }
   }]);
 

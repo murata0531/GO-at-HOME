@@ -86,7 +86,7 @@ export default class Home extends React.Component {
                 if (v.uid != userid) {
                     str += '<div class="opponent">';
                     str += '<div class="faceicon">';
-                    str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                    str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                     str += '<div class="message_box m-2">';
                     str += '<div class="message_content p-3">';
                     str += '<div class="message_text">' + v.message + '</div></div></div>';
@@ -95,7 +95,7 @@ export default class Home extends React.Component {
                     output.innerHTML += str;
 
                 } else if (v.uid == userid) {
-                    // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                    // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                     str += '<div class="myself">';
                     str += '<div class="faceicon">';
                     str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
@@ -118,7 +118,7 @@ export default class Home extends React.Component {
                     if (v.uid != userid) {
                         str += '<div class="opponent">';
                         str += '<div class="faceicon">';
-                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                        str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                         str += '<div class="message_box m-2">';
                         str += '<div class="message_content p-3">';
                         str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
@@ -127,7 +127,7 @@ export default class Home extends React.Component {
                         output.innerHTML += str;
 
                     } else if (v.uid == userid) {
-                        // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                        // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                         str += '<div class="myself">';
                         str += '<div class="faceicon">';
                         str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
@@ -176,7 +176,7 @@ export default class Home extends React.Component {
                 <div className="box4 col-lg" id="home-box4">
                     <div className="container">
                         <div className="d-flex align-items-center justify-content-between p-0">
-                            <div className="subname p-2 font-weight-bold" ><i class="fa fa-users pr-2"></i>{first_family.family_name + "<家族>"}</div>
+                            <div className="subname p-2 font-weight-bold" ><i className="fa fa-users pr-2"></i>{first_family.family_name + "<家族>"}</div>
                             {
                                 Object.keys(family_user).map(key => (
                                     <div className="users p-2 font-weight-bold" key={key}>
