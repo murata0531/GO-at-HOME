@@ -120,6 +120,12 @@
                 text-decoration: none;
                 color: #000;
             }
+            /* ログアウトのデザイン */
+            .box2 a:link, a:visited, a:hover, a:active {
+                color: #555;
+            }
+            /* /ログアウトのデザイン */
+            
             /* menu(左の画面)部分ここまで↑ */
             /* subheader部分ここから↓ */
             .box4 {
@@ -136,6 +142,9 @@
             }
             #private-box4 {
                 background-color: #33CCFF;
+            }
+            #user-setting-box4{
+                background-color:black;
             }
             .box4 .setting {
                 height: 100%;
@@ -193,7 +202,9 @@
             .box5 .clear {
                 clear: both;
             }
-
+            #setting-sub {
+                background-color: #00AC97;
+            }
             #review table{
 
                 position: fixed;
@@ -318,7 +329,7 @@
                             </a>
                         </div>
                         <div class="p-2 d-flex align-items-center">
-                            <a href="/home/usersetting"><i class="room-setting fas fa-ellipsis-v p-2"></i></a>
+                            <a href="/home/usersetting"><i class="room-setting fas fa-user-cog p-2"></i></a>
                         </div>
                     </div>
                     <div class="form-group">
@@ -344,6 +355,11 @@
                         <a href="#"><input type="button" id="menu_bar03" class="accordion" /></a>
                     
                     </div>
+                    <div class="py-2 d-flex align-items-center text-center">
+                        <a href="/logout" class="logout">
+                            <i class="fas fa-user-circle p-2">ログアウト</i>
+                        </a>
+                    </div>
                 </div>
                 <!-- {{-- menu(左の画面)部分ここまで↑ --}} -->
                 <div class="box3 col-9 p-0">
@@ -360,6 +376,7 @@
             var user_id = @json($user->id);
             var first_family = @json($first_family);
             var family_user = @json($family_user);
+            var user = @json($user);
             
             function func2(){
                 

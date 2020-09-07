@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 
-export default class UserSetting extends React.Component {
+export default class UserSettingChange extends React.Component {
 
     render() {
 

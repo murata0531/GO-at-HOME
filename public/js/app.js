@@ -71466,6 +71466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71504,88 +71506,89 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
   _createClass(UserSetting, [{
     key: "render",
     value: function render() {
+      var _React$createElement;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "box4 col-lg"
+        className: "box4 col-lg",
+        id: "user-setting-box4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "container"
+        className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-flex align-items-center justify-content-between p-0"
+        className: "d-flex align-items-center justify-content-between p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "subname p-2 font-weight-bold"
-      }, "\u30B0\u30EB\u30FC\u30D7\u306E\u8A2D\u5B9A\u30FB\u5909\u66F4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "p-2 font-weight-bold"
+        className: "subname p-2 font-weight-bold"
+      }, "\u30E6\u30FC\u30B6\u306E\u8A2D\u5B9A\u30FB\u5909\u66F4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "setting fas fa-cog"
+        className: "setting fas fa-cog"
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "box5 mt-4 mx-4"
+        className: "box5 mt-4 mx-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "class col-8 mx-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        "class": "user-setting",
-        method: "post",
+        className: "class col-8 mx-auto"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", (_React$createElement = {
         className: "user-setting",
-        encType: "multipart/form-data"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        method: "get"
+      }, _defineProperty(_React$createElement, "className", "user-setting"), _defineProperty(_React$createElement, "encType", "multipart/form-data"), _React$createElement), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "hidden",
         name: "_token",
         value: document.querySelector('meta[name="csrf-token"').getAttribute('content')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        "class": "name font-weight-bold"
+        className: "name font-weight-bold"
       }, "\u30E6\u30FC\u30B6\u30FC\u8A2D\u5B9A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "exampleInputId"
+        htmlFor: "exampleInputId"
       }, "\u30E6\u30FC\u30B6\u30FCID : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        "class": "text-monospace"
-      }, "111111")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "text-monospace"
+      }, user.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "exampleInputIcon"
+        htmlFor: "exampleInputIcon"
       }, "\u30A2\u30A4\u30B3\u30F3 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "img/user_red.png",
+        src: icon,
         width: "70",
         height: "70",
-        "class": "rounded-circle align-middle img-responsive"
+        className: "rounded-circle align-middle img-responsive"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "exampleInputName"
+        htmlFor: "exampleInputName"
       }, "\u540D\u524D : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        "class": "form-control",
+        className: "form-control",
         id: "exampleInputName1",
-        placeholder: "\u30B5\u30B6\u30A8",
-        readonly: true
+        placeholder: user.name,
+        readOnly: true
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "exampleInputEmail"
+        htmlFor: "exampleInputEmail"
       }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "email",
-        "class": "form-control",
+        className: "form-control",
         id: "exampleInputEmail1",
-        placeholder: "sazae@sazae.com",
-        readonly: true
+        placeholder: user.email,
+        readOnly: true
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "exampleInputPassword"
+        htmlFor: "exampleInputPassword"
       }, "\u30D1\u30B9\u30EF\u30FC\u30C9 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
-        "class": "form-control",
-        id: "exampleInputPassword1",
-        readonly: true
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "form-control",
+        id: user.password,
+        readOnly: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary float-left bg-secondary border-0",
+        onClick: function onClick() {
+          history.back();
+        }
+      }, "\u623B\u308B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        "class": "btn btn-primary float-left bg-secondary border-0"
-      }, "\u623B\u308B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit",
-        "class": "btn btn-primary float-right border-0",
-        style: "background-color: #00AC97;"
+        className: "btn btn-primary float-right border-0",
+        id: "setting-sub"
       }, "\u5909\u66F4\u3059\u308B"))))));
     }
   }]);
