@@ -92,6 +92,7 @@
     </div>
     
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script>window.__SKYWAY_KEY__ = ;</script>
     <script>
     const Peer = window.Peer;
 
