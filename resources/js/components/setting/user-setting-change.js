@@ -5,6 +5,17 @@ import { Link } from 'react-router-dom';
 
 export default class UserSetting extends React.Component {
 
+    constructor(props) {
+        super(props)
+        this.state = { setting_name: user.name, setting_email: user.email, setting_password: '', setting_password2: '' } // stateのkey名とフォームのname属性を一致させる
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(e) {
+        let name = e.target.name; // フォームのname属性を取得 
+        this.setState({ [name]: e.target.value }) // name属性 = stateのkey名なのでstateに保存
+    }
+
     render() {
 
         return (
@@ -20,7 +31,9 @@ export default class UserSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form className="user-setting">
+                        <form className="user-setting" method="post" encType="multipart/form-data">
+                            <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"').getAttribute('content')} />
+
                             <h4 className="name font-weight-bold">ユーザー設定</h4>
                             <div className="form-group">
                                 <label htmlFor="exampleInputId">ユーザーID : </label>
@@ -32,26 +45,29 @@ export default class UserSetting extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputName">名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name}  ></input>
+                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} placeholder={user.name}  ></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">メールアドレス : </label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" placeholder={user.email}  ></input>
+                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} placeholder={user.email}  ></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword">パスワード : </label>
-                                <input type="password" className="form-control" id={user.password}  ></input>
+                                <input type="password" className="form-control" name="setting_password" id={user.password} onChange={this.handleChange} ></input>
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword">パスワード : </label>
+                                <input type="password" className="form-control" name="setting_password" id={user.password} onChange={this.handleChange} ></input>
+                            </div>
+                            <Link to="/home/usersetting">
+                                <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
+                            </Link>
+                            <input type="submit" className="btn btn-primary float-right border-0" id="setting-sub" value=">変更を確定"></input>
                         </form>
-                        <Link to="/home/usersetting">
-                        <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
-                        </Link>
-                        <Link to="/home/usersettingchange">
-                        <button className="btn btn-primary float-right border-0" id="setting-sub">変更を確定</button>
-                        </Link>
+
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
