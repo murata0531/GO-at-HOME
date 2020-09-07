@@ -32,21 +32,21 @@ export default class UserSetting extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputName">名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name} readOnly></input>
+                                <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name}  ></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">メールアドレス : </label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" placeholder={user.email} readOnly></input>
+                                <input type="email" className="form-control" id="exampleInputEmail1" placeholder={user.email}  ></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword">パスワード : </label>
-                                <input type="password" className="form-control" id={user.password} readOnly></input>
+                                <input type="password" className="form-control" id={user.password}  ></input>
                             </div>
                         </form>
                         <Link to="/home/usersetting">
                         <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
                         </Link>
-                        <Link to="usersetting/usersettingchange">
+                        <Link to="/home/usersettingchange">
                         <button className="btn btn-primary float-right border-0" id="setting-sub">変更を確定</button>
                         </Link>
                     </div>
