@@ -378,6 +378,16 @@
             var family_user = @json($family_user);
             var user = @json($user);
             
+            var setting_name = @json($errors->first('username'));
+            var setting_mail = @json($errors->first('email'));
+            
+            var setting_pass = @json($errors->first('password'));
+            var setting_pass2 = @json($errors->first('password2'));
+
+
+           var oldname = @json(old('username'));
+           var oldmail = @json(old('email'));
+           
             function func2(){
                 
                 let btn2 = document.getElementById('btn2');

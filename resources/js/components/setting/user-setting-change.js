@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 
-export default class UserSettingChange extends React.Component {
+export default class UserSetting extends React.Component {
 
     render() {
 
@@ -20,9 +20,7 @@ export default class UserSettingChange extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form className="user-setting" method="get" className="user-setting" encType="multipart/form-data">
-                            <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"').getAttribute('content')} />
-
+                        <form className="user-setting">
                             <h4 className="name font-weight-bold">ユーザー設定</h4>
                             <div className="form-group">
                                 <label htmlFor="exampleInputId">ユーザーID : </label>
@@ -44,9 +42,13 @@ export default class UserSettingChange extends React.Component {
                                 <label htmlFor="exampleInputPassword">パスワード : </label>
                                 <input type="password" className="form-control" id={user.password} readOnly></input>
                             </div>
-                            <a href="/home"><button className="btn btn-primary float-left bg-secondary border-0">戻る</button></a>
-                            <a href="#"><button type="submit" className="btn btn-primary float-right border-0" id="setting-sub">変更する</button></a>
                         </form>
+                        <Link to="/home/usersetting">
+                        <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
+                        </Link>
+                        <Link to="usersetting/usersettingchange">
+                        <button className="btn btn-primary float-right border-0" id="setting-sub">変更を確定</button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');;
+})->middleware('auth');
 
 Auth::routes();
 
 Route::get('home{any}', 'HomeController@index')->where('any','.*')->name('home');
+
+Route::get('video', function() {
+    return view('video');
+})->middleware('auth');
 

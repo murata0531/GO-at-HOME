@@ -128,7 +128,7 @@ export default class Home extends React.Component {
                         str += '<div class="myself">';
                         str += '<div class="faceicon">';
                         str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                        str += '<div class="message_box m-2" style="background-color:lime;">';
+                        str += '<div class="message_box m-2" style="background-color:#33CCFF;">';
                         str += '<div class="message_content p-3">';
                         str += '<div class="message_text">' + v.message + '</div></div></div>';
                         str += '<p class="dateTime float-left">' + v.date + '</div>';
@@ -160,7 +160,7 @@ export default class Home extends React.Component {
                             str += '<div class="myself">';
                             str += '<div class="faceicon">';
                             str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                            str += '<div class="message_box m-2" style="background-color:lime;">';
+                            str += '<div class="message_box m-2" style="background-color:#33CCFF;">';
                             str += '<div class="message_content p-3">';
                             str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
                             str += '<p class="dateTime float-left">' + v.date + '</div>';
@@ -254,7 +254,7 @@ export default class Home extends React.Component {
                     <div id="review"></div>
                     <div id="send" className="col p-2">
                         <div className="form-inline col">
-                            <button id="btn1" type="submit" className="btn btn-primary col-2"><i className="fas fa-video"></i></button>
+                            <button id="btn1" type="submit" className="btn btn-primary col-2"><a href="/video" target="_blank" rel="noopener" ><i className="fas fa-video"></i></a></button>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
                             <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
                             <div className="form-group col-6">

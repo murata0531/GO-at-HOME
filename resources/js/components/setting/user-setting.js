@@ -20,10 +20,7 @@ export default class UserSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form className="user-setting" method="get" encType="multipart/form-data">
-
-                            <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"').getAttribute('content')} />
-
+                        <form className="user-setting">
                             <h4 className="name font-weight-bold">ユーザー設定</h4>
                             <div className="form-group">
                                 <label htmlFor="exampleInputId">ユーザーID : </label>
@@ -47,7 +44,9 @@ export default class UserSetting extends React.Component {
                             </div>
                         </form>
                         <a href="/home/"><button className="btn btn-primary float-left bg-secondary border-0">戻る</button></a>
-                        <a href="#"><button type="submit" className="btn btn-primary float-right border-0" id="setting-sub">変更する</button></a>
+                        <Link to="/home/userchange">
+                        <button className="btn btn-primary float-right border-0" id="setting-sub">変更する</button>
+                        </Link>
                     </div>
                 </div>
             </div>
