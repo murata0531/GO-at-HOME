@@ -71471,7 +71471,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserSettingChange; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -71505,15 +71505,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var UserSetting = /*#__PURE__*/function (_React$Component) {
-  _inherits(UserSetting, _React$Component);
+var UserSettingChange = /*#__PURE__*/function (_React$Component) {
+  _inherits(UserSettingChange, _React$Component);
 
-  var _super = _createSuper(UserSetting);
+  var _super = _createSuper(UserSettingChange);
 
-  function UserSetting(props) {
+  function UserSettingChange(props) {
     var _this;
 
-    _classCallCheck(this, UserSetting);
+    _classCallCheck(this, UserSettingChange);
 
     _this = _super.call(this, props);
     _this.state = {
@@ -71527,7 +71527,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _createClass(UserSetting, [{
+  _createClass(UserSettingChange, [{
     key: "handleChange",
     value: function handleChange(e) {
       var name = e.target.name; // フォームのname属性を取得 
@@ -71557,6 +71557,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "user-setting",
         method: "post",
+        action: "/userupdate",
         encType: "multipart/form-data"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "hidden",
@@ -71589,8 +71590,12 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         id: "exampleInputName1",
         name: "setting_name",
         onChange: this.handleChange,
-        placeholder: user.name
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        value: oldname,
+        placeholder: user.name,
+        required: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "vali"
+      }, setting_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputEmail"
@@ -71600,8 +71605,12 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         id: "exampleInputEmail1",
         name: "setting_email",
         onChange: this.handleChange,
-        placeholder: user.email
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        value: oldemail,
+        placeholder: user.email,
+        required: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "vali"
+      }, setting_email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputPassword"
@@ -71610,18 +71619,24 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         className: "form-control",
         name: "setting_password",
         id: user.password,
-        onChange: this.handleChange
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.handleChange,
+        required: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "vali"
+      }, setting_pass), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputPassword"
-      }, "\u30D1\u30B9\u30EF\u30FC\u30C9 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u518D\u5165\u529B : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         className: "form-control",
-        name: "setting_password",
+        name: "setting_password2",
         id: user.password,
-        onChange: this.handleChange
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        onChange: this.handleChange,
+        required: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "vali"
+      }, setting_pass2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/home/usersetting"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary float-left bg-secondary border-0"
@@ -71634,7 +71649,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return UserSetting;
+  return UserSettingChange;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 

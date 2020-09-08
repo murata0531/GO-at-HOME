@@ -20,9 +20,17 @@ class CreateMembersTable extends Migration
             $table->unsignedBigInteger('tuzukigara_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('family_id')->references('id')->on('families');
-            $table->foreign('tuzukigara_id')->references('id')->on('tuzukigaras');
+            $table->foreign('user_id')->references('id')->on('users')->constrained()
+            ->cascadeOnDelete()  // ON DELETE で CASCADE
+            ->cascadeOnUpdate();
+
+            $table->foreign('family_id')->references('id')->on('families')->constrained()
+            ->cascadeOnDelete()  // ON DELETE で CASCADE
+            ->cascadeOnUpdate();
+            
+            $table->foreign('tuzukigara_id')->references('id')->on('tuzukigaras')->constrained()
+            ->cascadeOnDelete()  // ON DELETE で CASCADE
+            ->cascadeOnUpdate();
            
             $table->unique(['user_id','family_id']);
         });

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 
-export default class UserSetting extends React.Component {
+export default class UserSettingChange extends React.Component {
 
     constructor(props) {
         super(props)
@@ -31,7 +31,7 @@ export default class UserSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form className="user-setting" method="post" encType="multipart/form-data">
+                        <form className="user-setting" method="post" action="/userupdate" encType="multipart/form-data">
                             <input type="hidden" name="_token" value={document.querySelector('meta[name="csrf-token"').getAttribute('content')} />
 
                             <h4 className="name font-weight-bold">ユーザー設定</h4>
@@ -45,20 +45,28 @@ export default class UserSetting extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputName">名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} placeholder={user.name}  ></input>
+                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} value={oldname} placeholder={user.name}  required></input>
                             </div>
+                            <p className="vali">{setting_name}</p>
+
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">メールアドレス : </label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} placeholder={user.email}  ></input>
+                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} value={oldemail} placeholder={user.email}  required></input>
                             </div>
+                            <p className="vali">{setting_email}</p>
+
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword">パスワード : </label>
-                                <input type="password" className="form-control" name="setting_password" id={user.password} onChange={this.handleChange} ></input>
+                                <input type="password" className="form-control" name="setting_password" id={user.password} onChange={this.handleChange} required placeholder="8文字以上で入力してください"></input>
                             </div>
+                            <p className="vali">{setting_pass}</p>
+
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword">パスワード : </label>
-                                <input type="password" className="form-control" name="setting_password" id={user.password} onChange={this.handleChange} ></input>
+                                <label htmlFor="exampleInputPassword">パスワード再入力 : </label>
+                                <input type="password" className="form-control" name="setting_password2" id={user.password} onChange={this.handleChange} required placeholder="もう一度入力してください"></input>
                             </div>
+                            <p className="vali">{setting_pass2}</p>
+
                             <Link to="/home/usersetting">
                                 <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
                             </Link>

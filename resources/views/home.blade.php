@@ -147,7 +147,7 @@
                 background-color: #337dab;
             }
             #user-setting-box4{
-                background-color:#f5f5f5;
+                background-color:#777777;
             }
             .box4 .setting {
                 height: 100%;
@@ -285,6 +285,11 @@
                 color: #fff;
             }}
 
+            .vali {
+                color:red;
+                font-weight:bold;
+            }
+
         </style>
         
         <title>go @ home</title>
@@ -384,15 +389,15 @@
             var family_user = @json($family_user);
             var user = @json($user);
             
-            var setting_name = @json($errors->first('username'));
-            var setting_mail = @json($errors->first('email'));
+            var setting_name = @json($errors->first('setting_name'));
+            var setting_email = @json($errors->first('setting_email'));
             
-            var setting_pass = @json($errors->first('password'));
-            var setting_pass2 = @json($errors->first('password2'));
+            var setting_pass = @json($errors->first('setting_password'));
+            var setting_pass2 = @json($errors->first('setting_password2'));
 
 
-           var oldname = @json(old('username'));
-           var oldmail = @json(old('email'));
+           var oldname = @json(old('setting_name'));
+           var oldemail = @json(old('setting_email'));
            
             function func2(){
                 

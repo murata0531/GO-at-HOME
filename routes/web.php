@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('home{any}', 'HomeController@index')->where('any','.*')->name('home');
 
+Route::post('/userupdate', 'HomeController@store');
 Route::get('video', function() {
     return view('video');
 })->middleware('auth');

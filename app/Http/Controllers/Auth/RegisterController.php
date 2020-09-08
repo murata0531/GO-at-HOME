@@ -113,6 +113,8 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
 
+        $familycount = count($data['name']);
+        $famly_temp_id;
         for($i = count($data['name']) -1; $i >= 0; $i--){
 
             $user = User::create([
@@ -144,18 +146,28 @@ class RegisterController extends Controller
     
             if($data['inlineRadioOptions'] == 'option1'){
     
-                $family = Family::create([
-                    'family_name' => $data['family-name'],
-                ]);
-    
-                Member::create([
-    
-                    'user_id' => $user->id,
-                    'family_id' => $family->id,
-                    'tuzukigara_id' => $sdata,
+                if($i == $familycount){
+                    $family = Family::create([
+                        'family_name' => $data['family-name'],
+                    ]);
         
-                ]);
-                
+                    Member::create([
+        
+                        'user_id' => $user->id,
+                        'family_id' => $family->id,
+                        'tuzukigara_id' => $sdata,
+            
+                    ]);
+                    $famly_temp_id = $family->id;
+                }else {
+                    Member::create([
+        
+                        'user_id' => $user->id,
+                        'family_id' => $family->id,
+                        'tuzukigara_id' => $sdata,
+            
+                    ]);
+                }
             }else {
     
     
