@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         {{-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> --}}
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
-        
+        <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
         <style>
@@ -134,22 +135,25 @@
                 /* box4のバックカラー */
                 background-color: #f5f5f5;
                 /* /box4のバックカラー */
-                color: #fff;
-                font-size:x-large;
+                font-family: "Hannari";
+                font-size:large;
+                color:#fff;
             }
             #home-box4 {
-                background-color:#33FF00;
+                background-color:#33ab61;
+                
             }
             #private-box4 {
-                background-color: #33CCFF;
+                background-color: #337dab;
             }
             #user-setting-box4{
-                background-color:black;
+                background-color:#f5f5f5;
             }
             .box4 .setting {
                 height: 100%;
                 font-size: large;
             }
+            
             /* subheader部分ここまで↑ */
             /* 会話部分ここから↓ */
             .box5 {
@@ -157,14 +161,15 @@
                 overflow-y: scroll;
                 -ms-overflow-style: none;
             }
+            
             .box5::-webkit-scrollbar {
                 display: none;
             }
-            .box5 .user-setting {
+            .box5 .user-setting  {
                 overflow-y:scroll;
                 -ms-overflow-style:none;
             }
-            .box5 .user-setting::webkit-scrollbar {
+            .box5 .user-setting::-webkit-scrollbar {
                 display:none;
             }
             .box5 .messageLine {
@@ -276,8 +281,9 @@
             }
             /* 会話送信部分ここまで↑ */
             
-            a:link  { color : black; }
-            a:visited  { color : black; }
+            .box5 a:link, a:visited, a:hover, a:active {
+                color: #fff;
+            }}
 
         </style>
         
