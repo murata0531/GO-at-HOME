@@ -230,7 +230,7 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                    <input class="form-control @error('password_confirmation.0') is-invalid @enderror" type="password" name="password_confirmation[]" id="password_confirmation[]" placeholder="パスワード再入力" required>
+                                    <input class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation[]" id="password_confirmation[]" placeholder="パスワード再入力" required>
                                     @error('password_confirmation.0')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
