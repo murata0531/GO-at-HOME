@@ -71194,6 +71194,8 @@ var Home = /*#__PURE__*/function (_React$Component) {
         var room = userid + "private" + param.privateid;
       } else if (userid < param.privateid) {
         var room = param.privateid + "private" + userid;
+      } else {
+        var room = "only" + userid;
       }
 
       var output = document.getElementById("messageLine");
@@ -71218,7 +71220,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                     if (v.uid != userid) {
                       str += '<div class="opponent">';
                       str += '<div class="faceicon">';
-                      str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                      str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                       str += '<div class="message_box m-2">';
                       str += '<div class="message_content p-3">';
                       str += '<div class="message_text">' + v.message + '</div></div></div>';
@@ -71226,11 +71228,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       str += '<div class="clear"></div>';
                       output.innerHTML += str;
                     } else if (v.uid == userid) {
-                      // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                      // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       str += '<div class="myself">';
                       str += '<div class="faceicon">';
                       str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                      str += '<div class="message_box m-2" style="background-color:#33CCFF;">';
+                      str += '<div class="message_box m-2" style="background-color:lime;">';
                       str += '<div class="message_content p-3">';
                       str += '<div class="message_text">' + v.message + '</div></div></div>';
                       str += '<p class="dateTime float-left">' + v.date + '</div>';
@@ -71250,7 +71252,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                     if (v.uid != userid) {
                       _str += '<div class="opponent">';
                       _str += '<div class="faceicon">';
-                      _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p class="name font-weight-bold m-0">' + v.name + '</p></div>';
+                      _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-left"><p className="name font-weight-bold m-0">' + v.name + '</p></div>';
                       _str += '<div class="message_box m-2">';
                       _str += '<div class="message_content p-3">';
                       _str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
@@ -71258,11 +71260,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       _str += '<div class="clear"></div>';
                       output.innerHTML += _str;
                     } else if (v.uid == userid) {
-                      // str += '<div class="name"><img src="..' + v.icon + '" width="50" height="50" class="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
+                      // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       _str += '<div class="myself">';
                       _str += '<div class="faceicon">';
                       _str += '<img src="..' + v.icon + '" width="50" height="50" class="rounded-circle align-middle img-responsive float-right"></div>';
-                      _str += '<div class="message_box m-2" style="background-color:#33CCFF;">';
+                      _str += '<div class="message_box m-2" style="background-color:lime;">';
                       _str += '<div class="message_content p-3">';
                       _str += '<div class="message_text"><a href=' + url + '><img src=' + url + ' target="_blank" rel="noopener noreferrer"></a></div></div></div>';
                       _str += '<p class="dateTime float-left">' + v.date + '</div>';
@@ -71396,16 +71398,18 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary col-2",
         onClick: function onClick() {
           var database = firebase.database();
+          var aname = name;
+          var aicon = icon;
+          var userid = user_id;
 
           if (userid > param.privateid) {
             var room = userid + "private" + param.privateid;
           } else if (userid < param.privateid) {
             var room = param.privateid + "private" + userid;
+          } else {
+            var room = "only" + userid;
           }
 
-          var aname = name;
-          var aicon = icon;
-          var userid = user_id;
           var btn3 = document.getElementById('btn3');
           var btn2 = document.getElementById('btn2');
           var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
@@ -71620,7 +71624,8 @@ var UserSettingChange = /*#__PURE__*/function (_React$Component) {
         name: "setting_password",
         id: user.password,
         onChange: this.handleChange,
-        required: true
+        required: true,
+        placeholder: "8\u6587\u5B57\u4EE5\u4E0A\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "vali"
       }, setting_pass), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71633,7 +71638,8 @@ var UserSettingChange = /*#__PURE__*/function (_React$Component) {
         name: "setting_password2",
         id: user.password,
         onChange: this.handleChange,
-        required: true
+        required: true,
+        placeholder: "\u3082\u3046\u4E00\u5EA6\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "vali"
       }, setting_pass2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {

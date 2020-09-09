@@ -196,6 +196,10 @@
                 border-radius: 30px 0px 30px 30px;
                 margin-right: 50px;
             }
+            .message_text img {
+                width:200px;
+                height:auto;
+            }
             .box5 .faceicon {
                 line-height: 1.3em;
             }
@@ -298,14 +302,7 @@
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
-                apiKey: "AIzaSyCov15JIexxNYYD1atR213t_rREKImqCDE",
-                authDomain: "chat-1b8c5.firebaseapp.com",
-                databaseURL: "https://chat-1b8c5.firebaseio.com",
-                projectId: "chat-1b8c5",
-                storageBucket: "chat-1b8c5.appspot.com",
-                messagingSenderId: "671003935191",
-                appId: "1:671003935191:web:1ec022df476d8950c94b92",
-                measurementId: "G-46Q0C6NENN"
+                
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
