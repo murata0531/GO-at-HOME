@@ -7,7 +7,6 @@
         <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style>
-
             html, body {
                 margin: 0;
                 padding: 0;
@@ -16,7 +15,6 @@
                 background: -webkit-radial-gradient(#CBBACC, #2580B3);
                 background: radial-gradient(#CBBACC, #2580B3);
             }
-
             
             .form_bg {
                 background: -moz-radial-gradient(#CBBACC, #2580B3);
@@ -141,7 +139,6 @@
                 font-size: 14px;
             }
         
-
         </style>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -356,11 +353,8 @@
         </div>
 
         <script>
-
             var count = document.getElementById('hideCounter');
-
             const familyAdd = document.getElementById("familyAdd");
-
             // document.getElementById("kazoku").onclick = function() {
                 
             //     let str = "";
@@ -372,11 +366,9 @@
             //     familyAdd.innerHTML += str;
                 
             // };
-
             $(function(){
                 // フォームカウント
                 var frm_cnt = 0;
-
                     // clone object
                 $(document).on('click', '#kazoku', function() {
                     var original = $('#form_block\\[' + frm_cnt + '\\]');
@@ -397,9 +389,7 @@
                     var clone = $('#form_block\\[' + frm_cnt + '\\]');
                     clone.children('#fclose').show();
                     clone.slideDown('slow');
-
                 });
-
                     // close object
                     $(document).on('click', '#fclose', function() {
                     var removeObj = $(this).parent();
@@ -421,9 +411,7 @@
                     });
                     });
                 });
-
                 });
-
             function change1() {
                 radio = document.getElementsByName('inlineRadioOptions')
                 if (radio[0].checked) {

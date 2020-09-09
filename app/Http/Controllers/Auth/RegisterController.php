@@ -146,7 +146,6 @@ class RegisterController extends Controller
     
             if($data['inlineRadioOptions'] == 'option1'){
     
-                if($i == $familycount){
                     $family = Family::create([
                         'family_name' => $data['family-name'],
                     ]);
@@ -158,16 +157,7 @@ class RegisterController extends Controller
                         'tuzukigara_id' => $sdata,
             
                     ]);
-                    $famly_temp_id = $family->id;
-                }else {
-                    Member::create([
-        
-                        'user_id' => $user->id,
-                        'family_id' => $family->id,
-                        'tuzukigara_id' => $sdata,
-            
-                    ]);
-                }
+                    
             }else {
     
     
@@ -183,5 +173,9 @@ class RegisterController extends Controller
         
 
         return $user;
+    }
+
+    public function userlogout(){
+        auth::logout();
     }
 }

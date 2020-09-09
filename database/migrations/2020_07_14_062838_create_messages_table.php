@@ -20,12 +20,8 @@ class CreateMessagesTable extends Migration
             $table->string('message_text');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->constrained()
-            ->cascadeOnDelete()  // ON DELETE で CASCADE
-            ->cascadeOnUpdate();
-            $table->foreign('family_id')->references('id')->on('families')->constrained()
-            ->cascadeOnDelete()  // ON DELETE で CASCADE
-            ->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('family_id')->references('id')->on('families');
 
             $table->unique(['user_id','family_id']);
         });

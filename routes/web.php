@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Auth::routes();
+Route::post('/userlogout','RegisterController@userlogout');
 
 Route::get('home{any}', 'HomeController@index')->where('any','.*')->name('home');
 

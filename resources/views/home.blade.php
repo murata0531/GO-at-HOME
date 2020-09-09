@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -26,7 +22,6 @@
                 background: linear-gradient(to bottom, rgba(0, 172, 151, 0.5), rgba(0, 163, 129, 0.7));
                 height: 80px;
             }
-
             .box1 .title {
                 color: #fff;
                 padding: 0;
@@ -211,7 +206,6 @@
                 background-color: #00AC97;
             }
             #review table{
-
                 position: fixed;
                 /*基準を画面の左上に*/
                 top: 60%;
@@ -220,13 +214,11 @@
                 height:auto;
                 margin:0;
             }
-
             
             #review img {
                 object-fit: cover;
                 width: 200px;
             }
-
             #review input {
                 text-align:center;
                 width:100%;
@@ -259,7 +251,6 @@
             .box5 i {
                 color: #fff;
             }
-
             .box5 #btn2 {
                 display:none; /* アップロードボタンのスタイルを無効にする */
             }
@@ -284,12 +275,10 @@
             .box5 a:link, a:visited, a:hover, a:active {
                 color: #fff;
             }}
-
             .vali {
                 color:red;
                 font-weight:bold;
             }
-
         </style>
         
         <title>go @ home</title>
@@ -309,7 +298,14 @@
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
-               
+                apiKey: "AIzaSyCov15JIexxNYYD1atR213t_rREKImqCDE",
+                authDomain: "chat-1b8c5.firebaseapp.com",
+                databaseURL: "https://chat-1b8c5.firebaseio.com",
+                projectId: "chat-1b8c5",
+                storageBucket: "chat-1b8c5.appspot.com",
+                messagingSenderId: "671003935191",
+                appId: "1:671003935191:web:1ec022df476d8950c94b92",
+                measurementId: "G-46Q0C6NENN"
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
@@ -364,13 +360,15 @@
                         </ul>
                         <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
                         <a href="#"><input type="button" id="menu_bar03" class="accordion" /></a>
+                        <div class="py-2 d-flex align-items-center text-center">
+                        <form method="post" name="form1" action="{{route('logout')}}">
+                        @csrf
+                            <a href="javascript:form1.submit()" class="logout"><i class="fas fa-user-circle p-2">ログアウト</i></a>
+                        </form>
+                            
+                        </div>
+                    </div>  
                     
-                    </div>
-                    <div class="py-2 d-flex align-items-center text-center">
-                        <a href="/logout" class="logout">
-                            <i class="fas fa-user-circle p-2">ログアウト</i>
-                        </a>
-                    </div>
                 </div>
                 <!-- {{-- menu(左の画面)部分ここまで↑ --}} -->
                 <div class="box3 col-9 p-0">
@@ -394,8 +392,6 @@
             
             var setting_pass = @json($errors->first('setting_password'));
             var setting_pass2 = @json($errors->first('setting_password2'));
-
-
            var oldname = @json(old('setting_name'));
            var oldemail = @json(old('setting_email'));
            
@@ -407,14 +403,12 @@
                 let exampleFormControlTextarea1 = document.getElementById('exampleFormControlTextarea1');
                 tu.innerHTML = '';
                 btn2.value = '';
-
                 if(exampleFormControlTextarea1.value == ''){
                     btn3.disabled = "disabled";
                     btn3.style.backgroundColor = "gray";
                 }
                 alert(btn2.files.length);
             }
-
             
         </script>
 
