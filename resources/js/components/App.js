@@ -12,6 +12,7 @@ import UserSettingChange from './setting/user-setting-change.js';
 
 import UserNameSetting from './setting/user-name-setting.js';
 import UserEmailSetting from './setting/user-email-setting.js';
+import UserPasswordSetting from './setting/user-password-setting.js';
 
 export default class App extends Component {
     render() {
@@ -26,6 +27,7 @@ export default class App extends Component {
             <Route path="/home/usersetting" component={UserSetting} />
             <Route path="/home/usernamesetting" component={UserNameSetting} />
             <Route path="/home/useremailsetting" component={UserEmailSetting} />
+            <Route path="/home/userpasswordsetting" component={UserPasswordSetting} />
 
             </Switch>
             </div>
