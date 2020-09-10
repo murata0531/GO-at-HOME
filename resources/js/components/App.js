@@ -10,7 +10,9 @@ import UserSettingChange from './setting/user-setting-change.js';
 
 //各種設定変更フォーム//
 
-import UserNameSetting from './setting/user-name-setting';
+import UserNameSetting from './setting/user-name-setting.js';
+import UserEmailSetting from './setting/user-email-setting.js';
+
 export default class App extends Component {
     render() {
         return (
@@ -23,6 +25,8 @@ export default class App extends Component {
             <Route path="/home/private" component={Private} />
             <Route path="/home/usersetting" component={UserSetting} />
             <Route path="/home/usernamesetting" component={UserNameSetting} />
+            <Route path="/home/useremailsetting" component={UserEmailSetting} />
+
             </Switch>
             </div>
         </Router>

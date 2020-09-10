@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 
-export default class UserNameSetting extends React.Component {
+export default class UserEmailSetting extends React.Component {
 
     constructor(props) {
         super(props)
@@ -43,17 +43,19 @@ export default class UserNameSetting extends React.Component {
                                 <label htmlFor="exampleInputIcon">アイコン : </label>
                                 <img src={icon} width="70" height="70" className="rounded-circle align-middle img-responsive"></img>
                             </div>
+                            
                             <div className="form-group">
-                                <label htmlFor="exampleInputName">変更前の名前 : </label>
-                                <input type="text" className="form-control" value={user.name}　readOnly></input>
+                                <label htmlFor="exampleInputEmail">変更前のメールアドレス : </label>
+                                <input type="email" className="form-control" value={user.email} placeholder="メールアドレス"  readOnly></input>
                             </div>
                             
                             <div className="form-group">
-                                <label htmlFor="exampleInputName">変更後の名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} value={oldname} placeholder="名前"  required></input>
+                                <label htmlFor="exampleInputEmail">変更後のメールアドレス : </label>
+                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} value={oldemail} placeholder="メールアドレス"  required></input>
                             </div>
-                            <p className="vali">{setting_name}</p>
+                            <p className="vali">{setting_email}</p>
 
+                           
                             <Link to="/home/usersetting">
                                 <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
                             </Link>
