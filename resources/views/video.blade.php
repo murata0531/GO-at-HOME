@@ -81,7 +81,7 @@
           </div>
           <div class="videoid">
           <p id= "text-id">あなたのID<br><span id="js-local-id"></span></p>
-          <input type="text" placeholder="ここにIDを入力" id="js-remote-id">
+          <input type="text" placeholder="ここに相手のIDを入力" id="js-remote-id">
           <button id = "clip" onclick="copy()"><i class="fas fa-clipboard-list"></i></button>
           <button id="js-call-trigger"><i class="fas fa-phone"></i></button>
           <button id="js-close-trigger"><i class="fas fa-phone-slash"></i></button>
@@ -92,7 +92,7 @@
     </div>
     
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-    <script>window.__SKYWAY_KEY__ = ;</script>
+    <script>window.__SKYWAY_KEY__ = '';</script>
     <script>
     const Peer = window.Peer;
 
