@@ -7,6 +7,10 @@ import Private from "./private/private-main.js";
 import UserSetting from "./setting/user-setting.js";
 import UserSettingChange from './setting/user-setting-change.js';
 
+
+//各種設定変更フォーム//
+
+import UserNameSetting from './setting/user-name-setting';
 export default class App extends Component {
     render() {
         return (
@@ -18,7 +22,7 @@ export default class App extends Component {
             <Route path="/home" exact component={Home} />
             <Route path="/home/private" component={Private} />
             <Route path="/home/usersetting" component={UserSetting} />
-            <Route path="/home/userchange" component={UserSettingChange} />
+            <Route path="/home/usernamesetting" component={UserNameSetting} />
             </Switch>
             </div>
         </Router>

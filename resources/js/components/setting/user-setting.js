@@ -33,6 +33,9 @@ export default class UserSetting extends React.Component {
                             <div className="form-group">
                                 <label htmlFor="exampleInputName">名前 : </label>
                                 <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name} readOnly></input>
+                                <Link to="/home/userchange">
+                                    <button className="btn btn-primary float-right border-0" id="setting-sub">変更する</button>
+                                </Link>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">メールアドレス : </label>
@@ -44,9 +47,7 @@ export default class UserSetting extends React.Component {
                             </div>
                         </form>
                         <a href="/home/"><button className="btn btn-primary float-left bg-secondary border-0">戻る</button></a>
-                        <Link to="/home/userchange">
-                        <button className="btn btn-primary float-right border-0" id="setting-sub">変更する</button>
-                        </Link>
+
                     </div>
                 </div>
             </div>

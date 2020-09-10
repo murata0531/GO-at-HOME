@@ -71763,7 +71763,12 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         id: "exampleInputName1",
         placeholder: user.name,
         readOnly: true
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/home/userchange"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary float-right border-0",
+        id: "setting-sub"
+      }, "\u5909\u66F4\u3059\u308B"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputEmail"
@@ -71786,12 +71791,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         href: "/home/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary float-left bg-secondary border-0"
-      }, "\u623B\u308B")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/home/userchange"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-primary float-right border-0",
-        id: "setting-sub"
-      }, "\u5909\u66F4\u3059\u308B")))));
+      }, "\u623B\u308B")))));
     }
   }]);
 
