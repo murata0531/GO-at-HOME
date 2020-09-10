@@ -267,7 +267,6 @@
 
                             @else
                             @foreach(old('name') as $key => $value)
-                            <div><h2>{{$value}}</h2></div>
                             <div class="form-block" id="form_block[{{$key}}]">
                             
                                 <h3 class="title" style="color:#CC0000;">家族</h3>
