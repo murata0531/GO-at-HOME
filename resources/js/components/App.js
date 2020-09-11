@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from "./home/home-main.js";
 import Private from "./private/private-main.js";
 import UserSetting from "./setting/user-setting.js";
-import UserSettingChange from './setting/user-setting-change.js';
 
 
 //各種設定変更フォーム//

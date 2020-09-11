@@ -206,6 +206,7 @@ export default class Home extends React.Component {
                     <div id="send" className="col p-2">
                         <div className="form-inline col">
                             <button id="btn1" type="submit" className="btn btn-primary col-2"><a href="/video" target="_blank" rel="noopener"><i className="fas fa-video"></i></a></button>
+                            
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
                             <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
                             <div className="form-group col-6">

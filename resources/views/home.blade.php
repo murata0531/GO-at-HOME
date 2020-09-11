@@ -283,6 +283,28 @@
                 color:red;
                 font-weight:bold;
             }
+
+            .btn-mouseover:hover + .mouseover__box{
+                display: block;
+            }
+            .mouseover__box:hover{
+            display: block;
+            }
+            .mouseover__box{
+            display: none;
+            position: absolute;
+            z-index:1;
+            left:30%;
+            width: 200px;
+            padding: 5px;
+            font-size: 13px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+            }
+
+            
         </style>
         
         <title>go @ home</title>
@@ -332,8 +354,12 @@
                                 <input class="user_name align-middle font-weight-bold text-center" type="text" size="13px" value="{{$user->name}}" readonly>
                             </a>
                         </div>
-                        <div class="p-2 d-flex align-items-center">
+                        <div class="p-2 d-flex align-items-center btn-mouseover">
                             <a href="/home/usersetting"><i class="room-setting fas fa-user-cog p-2"></i></a>
+                            
+                        </div>
+                        <div class="mouseover__box" style="left:50%;; top:60px;">
+                            <p>ユーザ設定の確認</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -342,14 +368,20 @@
                     </div>
                     <div class="menu">
                         <label for="menu_bar01"><i class="fa fa-users pr-2"></i>グループ<i class="fas fa-angle-down float-right"></i></label>
-                        <input type="checkbox" id="menu_bar01" class="accordion" />
+                        <input type="checkbox" id="menu_bar01" class="accordion  btn-mouseover" />
+                        <div class="mouseover__box">
+                            <p>自分が所属している家族の一覧が表示されます</p>
+                        </div>
                         <ul id="list01">
                         @foreach($family as $e)
                             <li><a href="/home/?familyid={{$e->id}}&userid={{$user->id}}&familyname={{$e->family_name}}">{{$e->family_name}}</a></li>
                         @endforeach
                         </ul>
                         <label for="menu_bar02"><i class="fas fa-user pr-2"></i>家族<i class="fas fa-angle-down float-right"></i></label>
-                        <input type="checkbox" id="menu_bar02" class="accordion" />
+                        <input type="checkbox" id="menu_bar02" class="accordion btn-mouseover" />
+                        <div class="mouseover__box">
+                            <p>家族内のメンバー一覧</p>
+                        </div>
                         <ul id="list02">
                         @foreach($family_user as $e)
                             <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name}}</a></li>
