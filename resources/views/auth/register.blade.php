@@ -21,6 +21,7 @@
                 background: -webkit-radial-gradient(#CBBACC, #2580B3);
                 background: radial-gradient(#CBBACC, #2580B3);
                 height: 100vh;
+                padding-top:80px;
                 align-items: center;
             }
             .form_horizontal {

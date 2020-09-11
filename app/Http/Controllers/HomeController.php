@@ -61,39 +61,59 @@ class HomeController extends Controller
 
     {
         
-    
-        $request->validate([
+        
+        if($request->has('setting_email')){
             
-            'setting_email' => ['email','max:50','unique:users,email'],
+            $request->validate([
+                'setting_email' => ['email','max:50','unique:users,email'],
             
-            'setting_password' => ['required','min:8','unique:users,password'],
-            'setting_password2' => 'required | same:setting_password',
+            ],[
+                'setting_email.unique' => "無効なメールアドレスです",
+            ]);
+        }
+
+
+        if($request->has('setting_password')){
             
-        ],[
+            $request->validate([
+                'setting_password' => ['required','min:8','unique:users,password'],
+                'setting_password2' => 'required | same:setting_password',            
+            ],[
+                'setting_password.min' => "パスワードが短すぎます",
+                'setting_password2.same' => "パスワードが一致しません",
+                'setting_password.unique' => "無効なパスワードです",
+            
+            ]);
+        }
 
-            'setting_email.unique' => "無効なメールアドレスです",
-            'setting_password.min' => "パスワードが短すぎます",
-            'setting_password2.same' => "パスワードが一致しません",
-            'setting_password.unique' => "無効なパスワードです",
         
-        ]);
+        if($request->has('setting_name')){
+            
+            $setting_name = $request->setting_name;
 
-        $setting_name = $request->setting_name;
+            \DB::table('users')
+            ->where('id', \Auth::user()->id)
+            ->update(['name' => $setting_name]);
+        }
+
+        if($request->has('setting_email')){
+
+            $setting_email = $request->setting_email;
+
+            \DB::table('users')
+            ->where('id', \Auth::user()->id)
+            ->update(['email' => $setting_email]);
+        }
         
-        $setting_email = $request->setting_email;
+        if($request->has('setting_password')){
+
+            $setting_password = Hash::make($request->setting_password);
+            
+            \DB::table('users')
+            ->where('id', \Auth::user()->id)
+            ->update(['password' => $setting_password]);
+        } 
         
-        $setting_password = Hash::make($request->setting_password);
-        
-
-        App\User::where('id', \Auth::user()->id())
-          ->update(['name' =>  $setting_name]);
-
-        App\User::where('id', \Auth::user()->id())
-          ->update(['email' =>  $setting_email]);
-
-        App\User::where('id', \Auth::user()->id())
-          ->update(['password' =>  $setting_password]);
-
         return redirect('/home');
 
     }

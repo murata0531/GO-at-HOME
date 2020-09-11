@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 export default class UserPasswordSetting extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.state = { setting_name: user.name, setting_email: user.email, setting_password: '', setting_password2: '' } // stateのkey名とフォームのname属性を一致させる
-        this.handleChange = this.handleChange.bind(this)
+        super(props);
+        this.state = { value: '' };
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e) {
-        let name = e.target.name; // フォームのname属性を取得 
-        this.setState({ [name]: e.target.value }) // name属性 = stateのkey名なのでstateに保存
+    handleChange(event) {
+        this.setState({ value: event.target.value });
     }
 
     render() {

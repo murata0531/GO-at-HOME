@@ -183,8 +183,4 @@ class RegisterController extends Controller
 
         return $user;
     }
-
-    public function userlogout(){
-        auth::logout();
-    }
 }

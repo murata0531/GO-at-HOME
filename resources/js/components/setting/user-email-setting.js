@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom';
 export default class UserEmailSetting extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.state = { setting_name: user.name, setting_email: user.email, setting_password: '', setting_password2: '' } // stateのkey名とフォームのname属性を一致させる
-        this.handleChange = this.handleChange.bind(this)
+        super(props);
+        this.state = { value: '' };
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e) {
-        let name = e.target.name; // フォームのname属性を取得 
-        this.setState({ [name]: e.target.value }) // name属性 = stateのkey名なのでstateに保存
+    handleChange(event) {
+        this.setState({ value: event.target.value });
     }
+
 
     render() {
 
@@ -43,19 +44,19 @@ export default class UserEmailSetting extends React.Component {
                                 <label htmlFor="exampleInputIcon">アイコン : </label>
                                 <img src={icon} width="70" height="70" className="rounded-circle align-middle img-responsive"></img>
                             </div>
-                            
+
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">変更前のメールアドレス : </label>
-                                <input type="email" className="form-control" value={user.email} placeholder="メールアドレス"  readOnly></input>
+                                <input type="email" className="form-control" value={user.email} placeholder="メールアドレス" readOnly></input>
                             </div>
-                            
+
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail">変更後のメールアドレス : </label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} value={oldemail} placeholder="メールアドレス"  required></input>
+                                <input type="email" className="form-control" id="exampleInputEmail1" name="setting_email" onChange={this.handleChange} value={this.state.value} placeholder="メールアドレス" required></input>
                             </div>
                             <p className="vali">{setting_email}</p>
 
-                           
+
                             <Link to="/home/usersetting">
                                 <button className="btn btn-primary float-left bg-secondary border-0">戻る</button>
                             </Link>

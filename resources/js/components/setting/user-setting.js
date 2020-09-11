@@ -20,34 +20,39 @@ export default class UserSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form className="user-setting">
-                            <h4 className="name font-weight-bold">ユーザー設定</h4>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputId">ユーザーID : </label>
-                                <p className="text-monospace">{user.id}</p>
+                        <form class="user-setting">
+                            <h4 class="name font-weight-bold">ユーザー設定</h4>
+                            <div class="form-group">
+                                <label for="exampleInputId">ユーザーID : </label>
+                                <p class="text-monospace">{user.id}</p>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputIcon">アイコン : </label>
-                                <img src={icon} width="70" height="70" className="rounded-circle align-middle img-responsive"></img>
+                            <div class="form-group">
+                                <label for="exampleInputIcon">アイコン : </label>
+                                <img src={icon} width="70" height="70" class="rounded-circle align-middle img-responsive"></img>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputName">名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name} readOnly></input>
-                                <Link to="/home/userchange">
-                                    <button className="btn btn-primary float-right border-0" id="setting-sub">変更する</button>
+                            <div class="form-group mt-3">
+                                <label for="exampleInputName">名前 : </label>
+                                <input type="text" class="form-control" id="exampleInputName1" placeholder={user.name} readOnly></input>
+                                <Link to="/home/usernamesetting">
+                                    <button className="btn btn-primary float-right border-0 mt-2" id="setting-sub">変更する</button>
+                                </Link>
+                                </div>
+                            <div class="form-group mt-5">
+                                <label for="exampleInputEmail">メールアドレス : </label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder={user.email} readOnly></input>
+                                <Link to="/home/useremailsetting">
+                                    <button className="btn btn-primary float-right border-0 mt-2" id="setting-sub">変更する</button>
                                 </Link>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail">メールアドレス : </label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" placeholder={user.email} readOnly></input>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword">パスワード : </label>
-                                <input type="password" className="form-control" id={user.password} readOnly></input>
+                            <div class="form-group mt-5">
+                                <label for="exampleInputPassword">パスワード : </label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" readOnly></input>
+                                <Link to="/home/userpasswordsetting">
+                                    <button className="btn btn-primary float-right border-0 mt-2" id="setting-sub">変更する</button>
+                                </Link>
                             </div>
                         </form>
                         <a href="/home/"><button className="btn btn-primary float-left bg-secondary border-0">戻る</button></a>
-
                     </div>
                 </div>
             </div>

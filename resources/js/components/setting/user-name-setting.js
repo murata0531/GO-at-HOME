@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 export default class UserNameSetting extends React.Component {
 
     constructor(props) {
-        super(props)
-        this.state = { setting_name: user.name, setting_email: user.email, setting_password: '', setting_password2: '' } // stateのkey名とフォームのname属性を一致させる
-        this.handleChange = this.handleChange.bind(this)
+        super(props);
+        this.state = { value: '' };
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e) {
-        let name = e.target.name; // フォームのname属性を取得 
-        this.setState({ [name]: e.target.value }) // name属性 = stateのkey名なのでstateに保存
+    handleChange(event) {
+        this.setState({ value: event.target.value });
     }
 
     render() {
@@ -50,7 +50,7 @@ export default class UserNameSetting extends React.Component {
                             
                             <div className="form-group">
                                 <label htmlFor="exampleInputName">変更後の名前 : </label>
-                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} value={oldname} placeholder="名前"  required></input>
+                                <input type="text" className="form-control" id="exampleInputName1" name="setting_name" onChange={this.handleChange} value={this.state.value} placeholder="名前"  required></input>
                             </div>
                             <p className="vali">{setting_name}</p>
 
