@@ -158,11 +158,11 @@
                             <input type="hidden" name="count" value="0" id="hideCounter">
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="change1();" checked>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"  onclick="change1();" {{ old('inlineRadioOptions','option1') == 'option1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inlineRadio1">新規家族追加</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="change1();">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="change1();" {{ old('inlineRadioOptions') == 'option2' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inlineRadio2">既存の家族に入る</label>
                             </div>
 

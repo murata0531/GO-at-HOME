@@ -70968,7 +70968,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         id: "btn1",
         type: "submit",
-        className: "btn btn-primary col-2"
+        className: "btn btn-primary col-2 btn-mouseover"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
         href: "/video",
         target: "_blank",

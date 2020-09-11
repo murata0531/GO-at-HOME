@@ -67,14 +67,14 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 'family-name' => ['required'],
                 // 'family-id' => ['required'],
-                'relations.*' => ['required'],
+                'relations.*' => ['required','not_regex:/^(no)/'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
                 // 'password.*.regex' => "複雑なパスワードを入力してください",
                 'password.*.min' => "パスワードは8文字以上で入力してください",
                 'password_confirmation.*.same' => "パスワードが一致しません",
-                // 'relations.*.not_regex' => "選択してください",
+                'relations.*.not_regex' => "選択してください",
             
             ]);
         }else {
@@ -86,13 +86,13 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 // 'family-name' => ['required'],
                 'family-id' => ['required', 'exists:families,id'],
-                'relations.*' => ['required'],
+                'relations.*' => ['required','not_regex:/^(no)/'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
                 'password.*.min' => "パスワードは8文字以上で入力してください",
                 'password_confirmation.*.same' => "パスワードが一致しません",
-                // 'relations.*.not_regex' => "選択してください",
+                'relations.*.not_regex' => "選択してください",
             
             ]);
         }
