@@ -252,9 +252,9 @@ export default class Home extends React.Component {
                                 <img src={param.privateicon} width="30" height="30" className="rounded-circle align-middle img-responsive"></img>&nbsp;{param.privatename}
                             </div>
 
-                            <Link to="/home/exexample">
+                            {/* <Link to="/home/exexample"> */}
                                 <div className="p-2 font-weight-bold"><i className="setting fas fa-cog pr-2"></i></div>
-                            </Link>
+                            {/* </Link> */}
 
                         </div>
                     </div>
