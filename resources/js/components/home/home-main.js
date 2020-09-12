@@ -177,7 +177,13 @@ export default class Home extends React.Component {
             bottom: "100%"
         };
 
-        const fileocontext = {
+        const filecontext = {
+            left: "18.5%",
+            bottom: "100%"
+        }
+
+        const submitcontext = {
+            left: "83.5%",
             bottom: "100%"
         }
 
@@ -222,13 +228,13 @@ export default class Home extends React.Component {
                             </div>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
                             <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2  btn-mouseover"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
-                            <div class="mouseover__box" style={fileocontext}>
+                            <div class="mouseover__box" style={filecontext}>
                                 <p>ファイルをアップロード<br></br>(イメージファイルのみ可)</p>
                             </div>
                             <div className="form-group col-6">
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={this.state.value} onChange={this.handleChange}></textarea>
                             </div>
-                            <button id="btn3" type="submit" className="btn btn-primary col-2" onClick={
+                            <button id="btn3" type="submit" className="btn btn-primary col-2 btn-mouseover" onClick={
                                 function () {
 
                                     var database = firebase.database();
@@ -294,6 +300,9 @@ export default class Home extends React.Component {
 
                                 }
                             }><i className="fas fa-paper-plane"></i></button>
+                            <div class="mouseover__box" style={submitcontext}>
+                                <p>送信</p>
+                            </div>
                         </div>
                     </div>
                     {/* <!-- {{-- 会話送信部分ここまで↑ --}} --> */}

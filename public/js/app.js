@@ -70930,6 +70930,14 @@ var Home = /*#__PURE__*/function (_React$Component) {
         left: "2%",
         bottom: "100%"
       };
+      var filecontext = {
+        left: "18.5%",
+        bottom: "100%"
+      };
+      var submitcontext = {
+        left: "83.5%",
+        bottom: "100%"
+      };
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "box4 col-lg",
         id: "home-box4"
@@ -70986,7 +70994,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         htmlFor: "btn2",
         id: "avatar",
         name: "avatar",
-        className: "btn btn-primary col-2"
+        className: "btn btn-primary col-2  btn-mouseover"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         id: "btn2",
         type: "file",
@@ -70995,6 +71003,9 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        "class": "mouseover__box",
+        style: filecontext
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "(\u30A4\u30E1\u30FC\u30B8\u30D5\u30A1\u30A4\u30EB\u306E\u307F\u53EF)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group col-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
         className: "form-control",
@@ -71005,7 +71016,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         id: "btn3",
         type: "submit",
-        className: "btn btn-primary col-2",
+        className: "btn btn-primary col-2 btn-mouseover",
         onClick: function onClick() {
           var database = firebase.database();
           var room = "family" + first_family.id;
@@ -71057,7 +71068,10 @@ var Home = /*#__PURE__*/function (_React$Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-paper-plane"
-      }))))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        "class": "mouseover__box",
+        style: submitcontext
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u9001\u4FE1"))))));
     }
   }]);
 
