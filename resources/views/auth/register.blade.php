@@ -309,14 +309,14 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-users"></i></span>
-                                    <select class='relationship w-100  @error("relations.$key") is-invalid @enderror' name="relations[]" value='{{ old("relations.$key") }}' id="relations[]" required>
-                                        <option selected disabled="disabled"value="no">続柄</option>
-                                        <option value="father">父</option>
-                                        <option value="mother">母</option>
-                                        <option value="son">息子</option>
-                                        <option value="daughter">娘</option>
-                                        <option value="grandpa">祖父</option>
-                                        <option value="grandmo">祖母</option>
+                                    <select class='relationship w-100  @error("relations.$key") is-invalid @enderror' name="relations[]" id="relations[]" required>
+                                        <option disabled="disabled"value="no" {{ (old("relations.$key","no") == 'no') ? "selected":"" }}>続柄を選択してください</option>
+                                        <option value="father" {{ (old("relations.$key") == 'father') ? "selected":"" }}>父</option>
+                                        <option value="mother" {{ (old("relations.$key") == 'mother') ? "selected":"" }}>母</option>
+                                        <option value="son" {{ (old("relations.$key") == 'son') ? "selected":"" }}>息子</option>
+                                        <option value="daughter" {{ (old("relations.$key") == 'daughter') ? "selected":"" }}>娘</option>
+                                        <option value="grandpa" {{ (old("relations.$key") == 'grandpa') ? "selected":"" }}>祖父</option>
+                                        <option value="grandmo" {{ (old("relations.$key") == 'grandmo') ? "selected":"" }}>祖母</option>
                                     </select>
                                     @error("relations.$key")
                                         <span class="invalid-feedback" role="alert">

@@ -67,7 +67,7 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 'family-name' => ['required'],
                 // 'family-id' => ['required'],
-                'relations.*' => ['required','not_regex:/^(no)/'],
+                'relations.*' => ['required'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
@@ -86,7 +86,7 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 // 'family-name' => ['required'],
                 'family-id' => ['required', 'exists:families,id'],
-                'relations.*' => ['required','not_regex:/^(no)/'],
+                'relations.*' => ['required'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
