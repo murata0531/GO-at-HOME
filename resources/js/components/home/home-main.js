@@ -187,6 +187,12 @@ export default class Home extends React.Component {
             bottom: "100%"
         }
 
+        const familycontext = {
+            left: "20px",
+            top: "0px",
+            color:"black"
+        }
+
         return (
 
             <div>
@@ -197,7 +203,10 @@ export default class Home extends React.Component {
                             {
                                 Object.keys(family_user).map(key => (
                                     <div className="users p-2 font-weight-bold" key={key}>
-                                        <img src={family_user[key].user_icon} width="30" height="30" className="rounded-circle align-middle img-responsive"></img>&nbsp;{family_user[key].tuzukigara_name}
+                                        <img src={family_user[key].user_icon} width="30" height="30" className="rounded-circle align-middle img-responsive btn-mouseover"></img>&nbsp;{family_user[key].tuzukigara_name}
+                                        <div className="mouseover__box" style={familycontext}>
+                                            <p>{family_user[key].name}</p>
+                                        </div>
                                     </div>
                                 ))
 
@@ -223,12 +232,12 @@ export default class Home extends React.Component {
                     <div id="send" className="col p-2">
                         <div className="form-inline col btn-mouseover">
                             <button id="btn1" type="submit" className="btn btn-primary col-2 btn-mouseover"><a href="/video" target="_blank" rel="noopener"><i className="fas fa-video"></i></a></button>
-                            <div class="mouseover__box" style={videocontext}>
+                            <div className="mouseover__box" style={videocontext}>
                                 <p>ビデオ通話</p>
                             </div>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
                             <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2  btn-mouseover"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
-                            <div class="mouseover__box" style={filecontext}>
+                            <div className="mouseover__box" style={filecontext}>
                                 <p>ファイルをアップロード<br></br>(イメージファイルのみ可)</p>
                             </div>
                             <div className="form-group col-6">
@@ -300,7 +309,7 @@ export default class Home extends React.Component {
 
                                 }
                             }><i className="fas fa-paper-plane"></i></button>
-                            <div class="mouseover__box" style={submitcontext}>
+                            <div className="mouseover__box" style={submitcontext}>
                                 <p>送信</p>
                             </div>
                         </div>

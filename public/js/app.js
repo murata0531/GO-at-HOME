@@ -70938,6 +70938,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
         left: "83.5%",
         bottom: "100%"
       };
+      var familycontext = {
+        left: "20px",
+        top: "0px",
+        color: "black"
+      };
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "box4 col-lg",
         id: "home-box4"
@@ -70957,8 +70962,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
           src: family_user[key].user_icon,
           width: "30",
           height: "30",
-          className: "rounded-circle align-middle img-responsive"
-        }), "\xA0", family_user[key].tuzukigara_name);
+          className: "rounded-circle align-middle img-responsive btn-mouseover"
+        }), "\xA0", family_user[key].tuzukigara_name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "mouseover__box",
+          style: familycontext
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, family_user[key].name)));
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/home/exexample"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -70988,7 +70996,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-video"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: videocontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u30D3\u30C7\u30AA\u901A\u8A71")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "btn2",
@@ -71003,7 +71011,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: filecontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "(\u30A4\u30E1\u30FC\u30B8\u30D5\u30A1\u30A4\u30EB\u306E\u307F\u53EF)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group col-6"
@@ -71069,7 +71077,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-paper-plane"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: submitcontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u9001\u4FE1"))))));
     }
