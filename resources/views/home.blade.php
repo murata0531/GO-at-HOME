@@ -380,7 +380,7 @@
                         <label for="menu_bar02"><i class="fas fa-user pr-2"></i>家族<i class="fas fa-angle-down float-right"></i></label>
                         <input type="checkbox" id="menu_bar02" class="accordion btn-mouseover" />
                         <div class="mouseover__box">
-                            <p>家族内のメンバー一覧</p>
+                            <p>家族内のメンバーが表示されます</p>
                         </div>
                         <ul id="list02">
                         @foreach($family_user as $e)
