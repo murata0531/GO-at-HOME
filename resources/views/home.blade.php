@@ -295,13 +295,17 @@
             position: absolute;
             z-index:1;
             left:30%;
-            width: 200px;
-            padding: 5px;
+            width: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top:5px;
+            vertical-align: middle;            
             font-size: 13px;
             background-color: #fff;
-            border: 1px solid #ccc;
+            border: 5px solid #ccc;
             box-sizing: border-box;
             text-align:center;
+            border-radius: 10px;
             }
 
             
@@ -358,7 +362,7 @@
                             <a href="/home/usersetting"><i class="room-setting fas fa-user-cog p-2"></i></a>
                             
                         </div>
-                        <div class="mouseover__box" style="left:50%;; top:60px;">
+                        <div class="mouseover__box" style="left:60%;; top:60px;">
                             <p>ユーザ設定の確認</p>
                         </div>
                     </div>
@@ -384,7 +388,11 @@
                         </div>
                         <ul id="list02">
                         @foreach($family_user as $e)
-                            <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name}}</a></li>
+                        @if($e->id == $user->id)
+                            <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(自分)"}}</a></li>
+                        @else
+                        <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(" . $e->tuzukigara_name . ")"}}</a></li>
+                        @endif
                         @endforeach
                         </ul>
                         <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
