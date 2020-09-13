@@ -71008,7 +71008,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         target: "_blank",
         rel: "noopener"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-        className: "fas fa-video"
+        className: "fas fa-video col-2"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "mouseover__box",
         style: videocontext

@@ -288,24 +288,24 @@
                 display: block;
             }
             .mouseover__box:hover{
-            display: block;
+                display: block;
             }
             .mouseover__box{
-            display: none;
-            position: absolute;
-            z-index:1;
-            left:30%;
-            width: auto;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-top:5px;
-            vertical-align: middle;            
-            font-size: 13px;
-            background-color: #fff;
-            border: 5px solid #ccc;
-            box-sizing: border-box;
-            text-align:center;
-            border-radius: 10px;
+                display: none;
+                position: absolute;
+                z-index:1;
+                left:30%;
+                width: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top:5px;
+                vertical-align: middle;            
+                font-size: 13px;
+                background-color: #fff;
+                border: 5px solid #ccc;
+                box-sizing: border-box;
+                text-align:center;
+                border-radius: 10px;
             }
 
             

@@ -240,7 +240,7 @@ export default class Home extends React.Component {
                     <div id="review"></div>
                     <div id="send" className="col p-2">
                         <div className="form-inline col btn-mouseover">
-                            <button id="btn1" type="submit" className="btn btn-primary col-2 btn-mouseover"><a href="/video" target="_blank" rel="noopener"><i className="fas fa-video"></i></a></button>
+                            <button id="btn1" type="submit" className="btn btn-primary col-2 btn-mouseover"><a href="/video" target="_blank" rel="noopener"><i className="fas fa-video col-2"></i></a></button>
                             <div className="mouseover__box" style={videocontext}>
                                 <p>ビデオ通話</p>
                             </div>
