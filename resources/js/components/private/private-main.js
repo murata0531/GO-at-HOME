@@ -287,9 +287,7 @@ export default class Home extends React.Component {
                             <button id="btn3" type="submit" className="btn btn-primary col-2 btn-mouseover" onClick={
                                 function () {
 
-                                    var database = firebase.database();
-
-
+                                    let database = firebase.database();
 
                                     const aname = name;
                                     const aicon = icon;

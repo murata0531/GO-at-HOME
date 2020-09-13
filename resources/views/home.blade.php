@@ -144,6 +144,10 @@
             #user-setting-box4{
                 background-color:#777777;
             }
+
+            #folder-box4 {
+                background-color:#99CC00;
+            }
             .box4 .setting {
                 height: 100%;
                 font-size: large;
@@ -307,6 +311,9 @@
                 text-align:center;
                 border-radius: 10px;
             }
+            #shareditemstable img {
+                width:500px;
+            }
 
             
         </style>
@@ -395,7 +402,7 @@
                         @endforeach
                         </ul>
                         <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
-                        <a href="#"><input type="button" id="menu_bar03" class="accordion" /></a>
+                        <a href="/home/shared"><input type="button" id="menu_bar03" class="accordion" /></a>
                         <div class="py-2 d-flex align-items-center text-center">
                         <form method="post" name="form1" action="{{route('logout')}}">
                         @csrf

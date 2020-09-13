@@ -7,6 +7,8 @@ import Private from "./private/private-main.js";
 import UserSetting from "./setting/user-setting.js";
 import HomeSetting from "./setting/home-setting.js";
 
+import SharedFolder from "./folder/folder.js";
+
 
 //各種設定変更フォーム//
 
@@ -29,6 +31,7 @@ export default class App extends Component {
             <Route path="/home/useremailsetting" component={UserEmailSetting} />
             <Route path="/home/userpasswordsetting" component={UserPasswordSetting} />
             <Route path="/home/homesetting" component={HomeSetting} />
+            <Route path="/home/shared" component={SharedFolder} />
 
             </Switch>
             </div>

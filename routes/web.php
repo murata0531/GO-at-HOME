@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+// Route::get('/home/shared', function () {
+//     return view('shared');
+// })->middleware('auth');
 
 Auth::routes();
 Route::post('/userlogout','RegisterController@userlogout');
@@ -26,4 +26,3 @@ Route::post('/userupdate', 'HomeController@store');
 Route::get('video', function() {
     return view('video');
 })->middleware('auth');
-
