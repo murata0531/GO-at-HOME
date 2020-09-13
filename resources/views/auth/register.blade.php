@@ -168,6 +168,7 @@
                 padding: 32px;
                 border-radius: 8px;
                 background-color: #fff;
+                text-align:left;
             }
             .active {
                 display: block !important;
@@ -227,10 +228,14 @@
 
                             <button type="button" id="helpbutton"><i class="far fa-question-circle"></i></button>
                             <div id="modal">
-                                <p>【既存の家族に入る】を選択した場合、すでに登録してある家族に入ることができます</p>
+                                <p><span style="font-weight:bold;">【新規家族追加】</span>を選択した場合、新しく家族を作成することができます</p>
+                                <p><span style="font-weight:bold;">【既存の家族に入る】</span>を選択した場合、すでに登録してある家族に入ることができます</p>
                                 
+                                <p style="color:red;font-weight:bold;">※家族IDは家族ルームの【設定】項目から確認することができます</p>
+
+                                <p></p>
                                 <div>
-                                    <button id="close">CLOSE</button>
+                                    <button id="close">閉じる</button>
                                 </div>
                             </div>
                             <div id="overlay"></div>
@@ -261,7 +266,7 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                    <input class="form-control @error('password.0') is-invalid @enderror" type="password" name="password[]" id="password[]" placeholder="パスワード" required>
+                                    <input class="form-control @error('password.0') is-invalid @enderror" type="password" name="password[]" id="password[]" placeholder="パスワード(8文字以上で入力してください)" required>
                                     @error('password.0')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -334,7 +339,7 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                    <input class='form-control @error("password.$key") is-invalid @enderror' type="password" name="password[]" id="password[]" placeholder="パスワード" required>
+                                    <input class='form-control @error("password.$key") is-invalid @enderror' type="password" name="password[]" id="password[]" placeholder="パスワード(8文字以上で入力してください)" required>
                                     @error("password.$key")
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
