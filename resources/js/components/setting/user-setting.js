@@ -20,31 +20,31 @@ export default class UserSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form class="user-setting">
-                            <h4 class="name font-weight-bold">ユーザー設定</h4>
+                        <form className="user-setting">
+                            <h4 className="name font-weight-bold">ユーザー設定</h4>
                             <div className="form-group">
                                 <label htmlFor="exampleInputId">ユーザーID : </label>
-                                <p class="text-monospace">{user.id}</p>
+                                <p className="text-monospace">{user.id}</p>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label htmlFor="exampleInputIcon">アイコン : </label>
                                 <img src={icon} width="70" height="70" className="rounded-circle align-middle img-responsive"></img>
                             </div>
-                            <div class="form-group mt-3">
+                            <div className="form-group mt-3">
                                 <label htmlFor="exampleInputName">名前 : </label>
                                 <input type="text" className="form-control" id="exampleInputName1" placeholder={user.name} readOnly></input>
                                 <Link to="/home/usernamesetting">
                                     <button className="btn btn-primary float-right border-0 mt-2" id="setting-sub">変更する</button>
                                 </Link>
                                 </div>
-                            <div class="form-group mt-5">
+                            <div className="form-group mt-5">
                                 <label htmlFor="exampleInputEmail">メールアドレス : </label>
                                 <input type="email" className="form-control" id="exampleInputEmail1" placeholder={user.email} readOnly></input>
                                 <Link to="/home/useremailsetting">
                                     <button className="btn btn-primary float-right border-0 mt-2" id="setting-sub">変更する</button>
                                 </Link>
                             </div>
-                            <div class="form-group mt-5">
+                            <div className="form-group mt-5">
                                 <label htmlFor="exampleInputPassword">パスワード : </label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" readOnly></input>
                                 <Link to="/home/userpasswordsetting">

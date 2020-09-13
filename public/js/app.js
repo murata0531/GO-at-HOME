@@ -70985,7 +70985,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "setting fas fa-cog"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: familysettingcontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u5BB6\u65CF\u8A2D\u5B9A")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "box5"
@@ -71402,7 +71402,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "subname p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-        "class": "fas fa-user pr-2"
+        className: "fas fa-user pr-2"
       }), "\u30D7\u30E9\u30A4\u30D9\u30FC\u30C8"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "users p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -71437,7 +71437,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-video"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: videocontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u30D3\u30C7\u30AA\u901A\u8A71")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "btn2",
@@ -71452,7 +71452,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-folder-open"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: filecontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "(\u30A4\u30E1\u30FC\u30B8\u30D5\u30A1\u30A4\u30EB\u306E\u307F\u53EF)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group col-6"
@@ -71526,7 +71526,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
         className: "fas fa-paper-plane"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "mouseover__box",
+        className: "mouseover__box",
         style: submitcontext
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "\u9001\u4FE1"))))));
     }
@@ -71612,15 +71612,15 @@ var HomeSetting = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "class col-8 mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        "class": "user-setting"
+        className: "user-setting"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        "class": "name font-weight-bold"
+        className: "name font-weight-bold"
       }, "\u5BB6\u65CF\u8A2D\u5B9A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputId"
       }, "\u5BB6\u65CFID : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        "class": "text-monospace"
+        className: "text-monospace"
       }, first_family.id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/home/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -72182,17 +72182,17 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "class col-8 mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        "class": "user-setting"
+        className: "user-setting"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        "class": "name font-weight-bold"
+        className: "name font-weight-bold"
       }, "\u30E6\u30FC\u30B6\u30FC\u8A2D\u5B9A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputId"
       }, "\u30E6\u30FC\u30B6\u30FCID : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        "class": "text-monospace"
+        className: "text-monospace"
       }, user.id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group"
+        className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputIcon"
       }, "\u30A2\u30A4\u30B3\u30F3 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -72201,7 +72201,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         height: "70",
         className: "rounded-circle align-middle img-responsive"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group mt-3"
+        className: "form-group mt-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputName"
       }, "\u540D\u524D : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -72216,7 +72216,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary float-right border-0 mt-2",
         id: "setting-sub"
       }, "\u5909\u66F4\u3059\u308B"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group mt-5"
+        className: "form-group mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputEmail"
       }, "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -72231,7 +72231,7 @@ var UserSetting = /*#__PURE__*/function (_React$Component) {
         className: "btn btn-primary float-right border-0 mt-2",
         id: "setting-sub"
       }, "\u5909\u66F4\u3059\u308B"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "form-group mt-5"
+        className: "form-group mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "exampleInputPassword"
       }, "\u30D1\u30B9\u30EF\u30FC\u30C9 : "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

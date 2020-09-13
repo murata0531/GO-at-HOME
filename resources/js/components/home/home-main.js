@@ -219,7 +219,7 @@ export default class Home extends React.Component {
                             }
 
                             <div className="p-2 font-weight-bold"><a href="/home/homesetting" className="btn-mouseover"><i className="setting fas fa-cog"></i></a>
-                                <div class="mouseover__box" style={familysettingcontext}>
+                                <div className="mouseover__box" style={familysettingcontext}>
                                     <p>家族設定</p>
                                 </div>
 

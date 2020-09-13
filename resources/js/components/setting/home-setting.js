@@ -20,11 +20,11 @@ export default class HomeSetting extends React.Component {
                 </div>
                 <div className="box5 mt-4 mx-4">
                     <div className="class col-8 mx-auto">
-                        <form class="user-setting">
-                            <h4 class="name font-weight-bold">家族設定</h4>
+                        <form className="user-setting">
+                            <h4 className="name font-weight-bold">家族設定</h4>
                             <div className="form-group">
                                 <label htmlFor="exampleInputId">家族ID : </label>
-                                <p class="text-monospace">{first_family.id}</p>
+                                <p className="text-monospace">{first_family.id}</p>
                             </div>
                             {/* <div class="form-group">
                                 <label htmlFor="exampleInputIcon">アイコン : </label>

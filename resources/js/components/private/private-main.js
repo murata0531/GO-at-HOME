@@ -246,7 +246,7 @@ export default class Home extends React.Component {
                 <div className="box4 col-lg" id="private-box4">
                     <div className="container">
                         <div className="d-flex align-items-center justify-content-between p-0" >
-                            <div className="subname p-2 font-weight-bold"><i class="fas fa-user pr-2"></i>プライベート</div>
+                            <div className="subname p-2 font-weight-bold"><i className="fas fa-user pr-2"></i>プライベート</div>
 
                             <div className="users p-2 font-weight-bold">
                                 <img src={param.privateicon} width="30" height="30" className="rounded-circle align-middle img-responsive"></img>&nbsp;{param.privatename}
@@ -273,12 +273,12 @@ export default class Home extends React.Component {
                     <div id="send" className="col p-2">
                         <div className="form-inline col">
                             <button id="btn1" type="submit" className="btn btn-primary col-2 btn-mouseover"><a href="/video" target="_blank" rel="noopener" ><i className="fas fa-video"></i></a></button>
-                            <div class="mouseover__box" style={videocontext}>
+                            <div className="mouseover__box" style={videocontext}>
                                 <p>ビデオ通話</p>
                             </div>
                             {/* <!-- <button id="btn2" type="file" id="avatar" name="avatar" className="btn btn-primary col-2"><i className="fas fa-folder-open"></i></button> --> */}
                             <label htmlFor="btn2" id="avatar" name="avatar" className="btn btn-primary col-2 btn-mouseover"><input id="btn2" type="file" onChange={this.filehandleChange} accept="image/*"></input><i className='fas fa-folder-open'></i></label>
-                            <div class="mouseover__box" style={filecontext}>
+                            <div className="mouseover__box" style={filecontext}>
                                 <p>ファイルをアップロード<br></br>(イメージファイルのみ可)</p>
                             </div>
                             <div className="form-group col-6">
@@ -359,7 +359,7 @@ export default class Home extends React.Component {
 
                                 }
                             }><i className="fas fa-paper-plane"></i></button>
-                            <div class="mouseover__box" style={submitcontext}>
+                            <div className="mouseover__box" style={submitcontext}>
                                 <p>送信</p>
                             </div>
                         </div>
