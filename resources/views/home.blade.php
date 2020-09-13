@@ -360,9 +360,8 @@
                         </div>
                         <div class="p-2 d-flex align-items-center btn-mouseover">
                             <a href="/home/usersetting"><i class="room-setting fas fa-user-cog p-2"></i></a>
-                            
                         </div>
-                        <div class="mouseover__box" style="left:60%;; top:60px;">
+                        <div class="mouseover__box" style="left:60%; top:60px;">
                             <p>ユーザ設定の確認</p>
                         </div>
                     </div>

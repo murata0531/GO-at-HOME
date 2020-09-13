@@ -190,7 +190,13 @@ export default class Home extends React.Component {
         const familycontext = {
             left: "20px",
             top: "0px",
-            color:"black"
+            color: "black"
+        }
+
+        const familysettingcontext = {
+            left: "90%",
+            top: "0px",
+            color: "black"
         }
 
         return (
@@ -211,10 +217,13 @@ export default class Home extends React.Component {
                                 ))
 
                             }
-                            <Link to="/home/exexample">
-                                <div className="p-2 font-weight-bold"><i className="setting fas fa-cog"></i></div>
-                            </Link>
 
+                            <div className="p-2 font-weight-bold"><a href="/home/homesetting" className="btn-mouseover"><i className="setting fas fa-cog"></i></a>
+                                <div class="mouseover__box" style={familysettingcontext}>
+                                    <p>家族設定</p>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

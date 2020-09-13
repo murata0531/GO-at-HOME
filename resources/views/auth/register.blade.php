@@ -231,7 +231,7 @@
                                 <p><span style="font-weight:bold;">【新規家族追加】</span>を選択した場合、新しく家族を作成することができます</p>
                                 <p><span style="font-weight:bold;">【既存の家族に入る】</span>を選択した場合、すでに登録してある家族に入ることができます</p>
                                 
-                                <p style="color:red;font-weight:bold;">※家族IDは家族ルームの【設定】項目から確認することができます</p>
+                                <p style="color:red;font-weight:bold;">※家族IDは家族ルームの【家族設定】項目から確認することができます</p>
 
                                 <p></p>
                                 <div>

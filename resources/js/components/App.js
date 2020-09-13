@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from "./home/home-main.js";
 import Private from "./private/private-main.js";
 import UserSetting from "./setting/user-setting.js";
+import HomeSetting from "./setting/home-setting.js";
 
 
 //各種設定変更フォーム//
@@ -27,6 +28,7 @@ export default class App extends Component {
             <Route path="/home/usernamesetting" component={UserNameSetting} />
             <Route path="/home/useremailsetting" component={UserEmailSetting} />
             <Route path="/home/userpasswordsetting" component={UserPasswordSetting} />
+            <Route path="/home/homesetting" component={HomeSetting} />
 
             </Switch>
             </div>
