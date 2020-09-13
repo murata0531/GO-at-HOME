@@ -138,7 +138,40 @@
             .form_horizontal .form-options li a i {
                 font-size: 14px;
             }
+            #helpbutton {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                outline: none;
+            }
         
+            #overlay {
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 9;
+                background-color: rgba(0, 0, 0, .65);
+            }
+            #modal {
+                display: none;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                z-index: 99;
+                transform: translate(-50%, -50%);
+                max-width: 70vw;
+                max-height: 70vh;
+                box-sizing: border-box;
+                padding: 32px;
+                border-radius: 8px;
+                background-color: #fff;
+            }
+            .active {
+                display: block !important;
+            }
         </style>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -191,6 +224,16 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            <button type="button" id="helpbutton"><i class="far fa-question-circle"></i></button>
+                            <div id="modal">
+                                <p>【既存の家族に入る】を選択した場合、すでに登録してある家族に入ることができます</p>
+                                
+                                <div>
+                                    <button id="close">CLOSE</button>
+                                </div>
+                            </div>
+                            <div id="overlay"></div>
 
                             <!-- ここから動的部品 -->
 
@@ -310,13 +353,13 @@
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-users"></i></span>
                                     <select class='relationship w-100  @error("relations.$key") is-invalid @enderror' name="relations[]" id="relations[]" required>
-                                        <option disabled="disabled"value="no" {{ (old("relations.$key","no") == 'no') ? "selected":"" }}>続柄を選択してください</option>
-                                        <option value="father" {{ (old("relations.$key") == 'father') ? "selected":"" }}>父</option>
-                                        <option value="mother" {{ (old("relations.$key") == 'mother') ? "selected":"" }}>母</option>
-                                        <option value="son" {{ (old("relations.$key") == 'son') ? "selected":"" }}>息子</option>
-                                        <option value="daughter" {{ (old("relations.$key") == 'daughter') ? "selected":"" }}>娘</option>
-                                        <option value="grandpa" {{ (old("relations.$key") == 'grandpa') ? "selected":"" }}>祖父</option>
-                                        <option value="grandmo" {{ (old("relations.$key") == 'grandmo') ? "selected":"" }}>祖母</option>
+                                        <option disabled="disabled"value="0" {{ (old("relations.$key","0") == '0') ? "selected":"" }}>続柄を選択してください</option>
+                                        <option value="1" name="relations[]" {{ (old("relations.$key") == '1') ? "selected":"" }}>父</option>
+                                        <option value="2" name="relations[]" {{ (old("relations.$key") == '2') ? "selected":"" }}>母</option>
+                                        <option value="3" name="relations[]" {{ (old("relations.$key") == '3') ? "selected":"" }}>息子</option>
+                                        <option value="4" name="relations[]" {{ (old("relations.$key") == '4') ? "selected":"" }}>娘</option>
+                                        <option value="5" name="relations[]" {{ (old("relations.$key") == '5') ? "selected":"" }}>祖父</option>
+                                        <option value="6" name="relations[]" {{ (old("relations.$key") == '6') ? "selected":"" }}>祖母</option>
                                     </select>
                                     @error("relations.$key")
                                         <span class="invalid-feedback" role="alert">
@@ -362,17 +405,18 @@
         <script>
             var count = document.getElementById('hideCounter');
             const familyAdd = document.getElementById("familyAdd");
-            // document.getElementById("kazoku").onclick = function() {
-                
-            //     let str = "";
-                
-            //     count.value = eval(count.value) + 1;
-            //     str += '<h3 class="title" style="color:#CC0000;">' + '家族' + (eval(count.value) + 1)  + '</h3>';
-            //     str += '<div class="form-group"><span class="input-icon"><i class="fa fa-user"></i></span>';
-                
-            //     familyAdd.innerHTML += str;
-                
-            // };
+           
+            $(document).ready(function() {
+                $("#helpbutton").on("click", function(e) {
+                    e.preventDefault();
+                    $("#overlay, #modal").addClass("active");
+
+                    $("#close, #overlay").on("click", function() {
+                        $("#overlay, #modal").removeClass("active");
+                        return false;
+                    });
+                });
+            });
             $(function(){
                 // フォームカウント
                 var frm_cnt = 0;
