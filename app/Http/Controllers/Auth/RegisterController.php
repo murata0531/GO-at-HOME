@@ -67,14 +67,14 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 'family-name' => ['required'],
                 // 'family-id' => ['required'],
-                'relations.*' => ['required','min:2'],
+                'relations.*' => ['required'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
                 // 'password.*.regex' => "複雑なパスワードを入力してください",
                 'password.*.min' => "パスワードは8文字以上で入力してください",
                 'password_confirmation.*.same' => "パスワードが一致しません",
-                'relations.*.min' => "選択してください",
+                // 'relations.*.min' => "選択してください",
             
             ]);
         }else {
@@ -86,13 +86,13 @@ class RegisterController extends Controller
                 'password_confirmation.*' => ['required','same:password.*'],
                 // 'family-name' => ['required'],
                 'family-id' => ['required', 'exists:families,id'],
-                'relations.*' => ['required','min:1'],
+                'relations.*' => ['required'],
             ],[
 
                 'email.*.unique' => "無効なメールアドレスです",
                 'password.*.min' => "パスワードは8文字以上で入力してください",
                 'password_confirmation.*.same' => "パスワードが一致しません",
-                'relations.*.min' => "選択してください",
+                // 'relations.*.min' => "選択してください",
             
             ]);
         }
@@ -115,7 +115,10 @@ class RegisterController extends Controller
 
         $familycount = count($data['name']);
         $famly_temp_id;
-        for($i = $familycount -1; $i >= 0; $i--){
+
+        $final_user;
+
+        for($i = 0; $i <= $familycount -1; $i++){
 
             $user = User::create([
                 'name' => $data['name'][$i],
@@ -123,22 +126,25 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password'][$i]),
             ]);
             
+            if($i == 0){
+                $final_user = $user;
+            }
     
             $sdata = '';
     
             switch ($data['relations'][$i]){
     
-                case 'father' : $sdata = 1;
+                case '1' : $sdata = 1;
                     break;
-                case 'mother' : $sdata = 2;
+                case '2' : $sdata = 2;
                     break;
-                case 'son' : $sdata = 3;
+                case '3' : $sdata = 3;
                     break;
-                case 'daughter' : $sdata = 4;
+                case '4' : $sdata = 4;
                     break;
-                case 'grandpa' : $sdata = 5;
+                case '5' : $sdata = 5;
                     break;
-                case 'grandmo' : $sdata = 6;
+                case '6' : $sdata = 6;
                     break;
             };
     
@@ -146,7 +152,7 @@ class RegisterController extends Controller
     
             if($data['inlineRadioOptions'] == 'option1'){
     
-                if($i == $familycount -1){
+                if($i == 0){
                     $family = Family::create([
                         'family_name' => $data['family-name'],
                     ]);
@@ -181,6 +187,6 @@ class RegisterController extends Controller
         }
         
 
-        return $user;
+        return $final_user;
     }
 }

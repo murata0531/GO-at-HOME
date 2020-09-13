@@ -131,7 +131,7 @@
                             </div>
                             <a href="#"><input class="btn signin w-50" type="submit" value="ロ グ イ ン"></a>
                             <ul class="form-options">
-                                <li><a href="{{ route('password.request') }}">パスワードを忘れた場合</a></li>
+                                <!-- <li><a href="{{ route('password.request') }}">パスワードを忘れた場合</a></li> -->
                                 <li><a href="/register">新しくアカウントを作る<i class="fas fa-arrow-right"></i></a></li>
                             </ul>
                         </form>

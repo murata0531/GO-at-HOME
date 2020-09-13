@@ -285,13 +285,13 @@
                                 <div class="form-group">
                                     <span class="input-icon"><i class="fas fa-users"></i></span>
                                     <select class="relationship w-100  @error('relations.0') is-invalid @enderror" name="relations[]" id="relations[]" required>
-                                        <option selected disabled="disabled"value="no">続柄</option>
-                                        <option value="father">父</option>
-                                        <option value="mother">母</option>
-                                        <option value="son">息子</option>
-                                        <option value="daughter">娘</option>
-                                        <option value="grandpa">祖父</option>
-                                        <option value="grandmo">祖母</option>
+                                        <option selected disabled="disabled"value="0">続柄</option>
+                                        <option value="1">父</option>
+                                        <option value="2">母</option>
+                                        <option value="3">息子</option>
+                                        <option value="4">娘</option>
+                                        <option value="5">祖父</option>
+                                        <option value="6">祖母</option>
                                     </select>
                                     @error('relations.0')
                                         <span class="invalid-feedback" role="alert">

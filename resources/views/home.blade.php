@@ -387,7 +387,7 @@
                         </div>
                         <ul id="list02">
                         @foreach($family_user as $e)
-                        @if($e->id == $user->id)
+                        @if($e->name == $user->name)
                             <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(自分)"}}</a></li>
                         @else
                         <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(" . $e->tuzukigara_name . ")"}}</a></li>

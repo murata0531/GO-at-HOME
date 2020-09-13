@@ -1,22 +1,13 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         {{-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> --}}
         <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
         <style>
-            /* header部分ここから↓ */
             .box1 {
                 background-color: #00AC97;
                 background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#00AC97));
@@ -25,15 +16,12 @@
                 background: linear-gradient(to bottom, rgba(0, 172, 151, 0.5), rgba(0, 163, 129, 0.7));
                 height: 80px;
             }
-
             .box1 .title {
                 color: #fff;
                 padding: 0;
                 margin: 0;
                 font-family: 'Alegreya Sans SC', sans-serif;
             }
-            /* header部分ここまで↑ */
-            /* menu(左の画面)部分ここから↓ */
             .box2 {
                 height: calc(100vh - 80px);
                 border-right: 1px solid #777;
@@ -125,33 +113,18 @@
                 color: #555;
             }
             /* /ログアウトのデザイン */
-            
-            /* menu(左の画面)部分ここまで↑ */
-            /* subheader部分ここから↓ */
             .box4 {
                 height: 50px;
                 border-bottom: 1px solid #777;
                 /* box4のバックカラー */
                 background-color: #f5f5f5;
                 /* /box4のバックカラー */
-                color: #fff;
-                font-size:x-large;
-            }
-            #home-box4 {
-                background-color:#33FF00;
-            }
-            #private-box4 {
-                background-color: #33CCFF;
-            }
-            #user-setting-box4{
-                background-color:black;
             }
             .box4 .setting {
                 height: 100%;
-                font-size: large;
+                font-size: x-large;
             }
-            /* subheader部分ここまで↑ */
-            /* 会話部分ここから↓ */
+            /* box5の変更点 */
             .box5 {
                 height: calc(100vh - 190px);
                 overflow-y: scroll;
@@ -160,177 +133,207 @@
             .box5::-webkit-scrollbar {
                 display: none;
             }
-            .box5 .user-setting {
-                overflow-y:scroll;
-                -ms-overflow-style:none;
+            .box5 .class {
+                overflow-y: scroll;
+                -ms-overflow-style: none;
             }
-            .box5 .user-setting::webkit-scrollbar {
-                display:none;
+            .box5 .class::-webkit-scrollbar {
+                display: none;
             }
-            .box5 .messageLine {
-                overflow: auto;
-                border-right: 1px solid #555;
-                border-left: 1px solid #555;
-            }
-            .box5 .opponent {
-                float: left;
-                line-height: 1.3em;
-            }
-            .box5 .opponent .message_box {
-                max-width: 100%;
-                font-size: 17px;
-                background: #fff;
-                border: 1px solid #999;
-                border-radius: 0px 30px 30px 30px;
-                margin-left: 50px;
-            }
-            .box5 .myself {
-                float: right;
-                line-height: 1.3em;
-            }
-            .box5 .myself .message_box {
-                max-width: 100%;
-                font-size: 17px;
-                background: #fff;
-                border: 1px solid #999;
-                border-radius: 30px 0px 30px 30px;
-                margin-right: 50px;
-            }
-            .box5 .faceicon {
-                line-height: 1.3em;
-            }
-            .box5 .clear {
-                clear: both;
-            }
-            #setting-sub {
-                background-color: #00AC97;
-            }
-            #review table{
-
-                position: fixed;
-                /*基準を画面の左上に*/
-                top: 60%;
-                left: 40%;
-                width:200px;
-                height:auto;
-                margin:0;
-            }
-
-            
-            #review img {
-                object-fit: cover;
-                width: 200px;
-            }
-
-            #review input {
-                text-align:center;
-                width:100%;
-            }
-            .box5 #send {
-                position: absolute;
-                bottom: 0;
-                background-color: #eee;
-                border: 1px solid #ddd;
-            }
-            .box5 #exampleFormControlTextarea1 {
-                line-height: 18px;
-                height: 60px;
-                width: 800px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
-                box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
-            }
-            /* 会話部分ここまで↑ */
-            /* 会話送信部分ここから↓ */
-            .box5 #btn1 {
-                height: 50px;
-                font-size: 30px;
-                margin: 0;
-                background-color: #9370db;
-                border: 1px solid #bbb;
-                border-radius: 5px;
-            }
-            .box5 i {
-                color: #fff;
-            }
-
-            .box5 #btn2 {
-                display:none; /* アップロードボタンのスタイルを無効にする */
-            }
-            .box5 #avatar {
-                height: 50px;
-                font-size: 30px;
-                margin: 0;
-                background-color: #1e90ff;
-                border: 1px solid #bbb;
-                border-radius: 5px;
-            }
-            .box5 #btn3 {
-                height: 50px;
-                font-size: 30px;
-                margin: 0px;
-                background-color: gray;
-                border: 1px solid #bbb;
-                border-radius: 5px;
-            }
-            /* 会話送信部分ここまで↑ */
-            
-            a:link  { color : black; }
-            a:visited  { color : black; }
-
+            /* /box5の変更点 */
         </style>
-        
-        <title>go @ home</title>
-
-        <!-- ここにアプリのscriptタグを貼り付けます。 -->
-
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
-
-        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
-        <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyCov15JIexxNYYD1atR213t_rREKImqCDE",
-                authDomain: "chat-1b8c5.firebaseapp.com",
-                databaseURL: "https://chat-1b8c5.firebaseio.com",
-                projectId: "chat-1b8c5",
-                storageBucket: "chat-1b8c5.appspot.com",
-                messagingSenderId: "671003935191",
-                appId: "1:671003935191:web:1ec022df476d8950c94b92",
-                measurementId: "G-46Q0C6NENN"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-        </script>
-        
+        <title>go @ home | 共有</title>
     </head>
     <body>
-        
-    <div class="container-fluid">
-            <!-- {{-- header部分ここから↓ --}} -->
+        <div class="container-fluid">
             <div class="header row">
                 <div class="box1 col-lg d-flex align-items-center justify-content-center">
                     <h1 class="title text-monospace">GO @ HOME</h1>
                 </div>
             </div>
-            
+            <div class="main row">
+                <div class="box2 col-3 p-0">
+                    <div class="d-flex justify-content-center">
+                        <div class="p-2">
+                            <img src="img/user_blue.png" width="70" height="70" class="rounded-circle align-middle img-responsive">
+                        </div>
+                        <div class="py-2 d-flex align-items-center">
+                            <a href="#">
+                                <input class="user_name align-middle font-weight-bold text-center" type="text" size="13px" value="サザエさん" readonly>
+                            </a>
+                        </div>
+                        <div class="p-2 d-flex align-items-center">
+                            <a href="#"><i class="room-setting fas fa-user-cog p-2"></i></a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" size="23" placeholder="グループ名・名前を入力">
+                        <span class="input-icon"><i class="fas fa-search"></i></span>
+                    </div>
+                    <div class="menu">
+                        <label for="menu_bar01"><i class="fa fa-users pr-2"></i>グループ<i class="fas fa-angle-down float-right"></i></label>
+                        <input type="checkbox" id="menu_bar01" class="accordion" />
+                        <ul id="list01">
+                            <li><a href="#">磯野家</a></li>
+                            <li><a href="#">フグ田家</a></li>
+                            <li><a href="#">グループ１</a></li>
+                            <li><a href="#">グループ２</a></li>
+                            <li><a href="#">グループ３</a></li>
+                            <li><a href="#">グループ４</a></li>
+                            <li><a href="#">グループ５</a></li>
+                        </ul>
+                        <label for="menu_bar02"><i class="fas fa-user pr-2"></i>家族<i class="fas fa-angle-down float-right"></i></label>
+                        <input type="checkbox" id="menu_bar02" class="accordion" />
+                        <ul id="list02">
+                            <li><a href="#">カツオ</a></li>
+                            <li><a href="#">マスオさん</a></li>
+                            <li><a href="#">ワカメ</a></li>
+                            <li><a href="#">ノリスケさん</a></li>
+                            <li><a href="#">お母さん</a></li>
+                            <li><a href="#">お父さん</a></li>
+                            <li><a href="#">タイ子さん</a></li>
+                            <li><a href="#">お義母さん</a></li>
+                        </ul>
+                        <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
+                    </div>
+                    <div class="py-2 d-flex align-items-center text-center">
+                        <a href="#" class="logout">
+                            <i class="fas fa-user-circle p-2">ログアウト</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box3 col-9 p-0">
+                    <div class="box4 col-lg">
+                        <div class="container">
+                            <div class="d-flex align-items-center justify-content-between p-0">
+                                {{-- box4の変更点 --}}
+                                <div class="subname p-2 font-weight-bold">共有</div>
+                                <div class="p-2 font-weight-bold"><i class="setting fas fa-cog"></i></div>
+                                {{-- /box4の変更点 --}}
+                            </div>
+                        </div>
+                    </div>
+                    {{-- box5設定の画面 --}}
+                    <div class="box5 mt-4 mx-4">
+                        <div class="class col-8 mx-auto">
+                            <div class="btn-up m-0 my-3">
+                                <button type="button" class="btn btn-outline-info">フォルダを作成</button>
+                                <button type="button" class="btn btn-outline-success">ファイルをアップロード</button>    
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-folder"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">cskjdsdkscpi</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.zip</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-images"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.jpg</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-folder"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">cskjdsdkscpi</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.zip</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-images"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.jpg</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-folder"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">cskjdsdkscpi</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.zip</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-images"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.jpg</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-folder"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">cskjdsdkscpi</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.zip</label>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-images"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01">csk.jpg</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- /box5設定の画面 --}}
+                </div>
             </div>
-        
-
-        
-        <script src="{{asset('/js/app.js')}}"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
     </body>
 </html>
