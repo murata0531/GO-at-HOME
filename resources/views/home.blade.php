@@ -394,10 +394,10 @@
                         </div>
                         <ul id="list02">
                         @foreach($family_user as $e)
-                        @if($e->name == $user->name)
-                            <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(自分)"}}</a></li>
+                        @if($e->user_id == $user->id)
+                            <li><a href="/home/private?privateid={{$e->user_id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(自分)"}}</a></li>
                         @else
-                        <li><a href="/home/private?privateid={{$e->id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(" . $e->tuzukigara_name . ")"}}</a></li>
+                        <li><a href="/home/private?privateid={{$e->user_id}}&privatename={{$e->name}}&privateicon={{$e->user_icon}}">{{$e->name . "(" . $e->tuzukigara_name . ")"}}</a></li>
                         @endif
                         @endforeach
                         </ul>

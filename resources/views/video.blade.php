@@ -121,10 +121,10 @@
           <div class="mouseover__box" style="left:40%; top:130%;">
               <p>通話を切る</p>
           </div>
-        </div>
+      </div>
       </div>
         <!--<p class="meta" id="js-meta"></p>-->
-    </div>
+      </div>
     </div>
       
       <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>

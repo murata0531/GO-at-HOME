@@ -57,7 +57,7 @@ export default class SharedFolder extends React.Component {
             });
         });
 
-        
+
 
     }
     render() {
@@ -111,7 +111,7 @@ export default class SharedFolder extends React.Component {
 
                                             }
                                         );
-                                        
+
                                     }
                                     btn2.value = '';
                                 }}>確定</button>
@@ -119,11 +119,11 @@ export default class SharedFolder extends React.Component {
                         </div>
 
                         <div>
-                        <table id="shareditemstable">
-                            
+                            <table id="shareditemstable">
+
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
