@@ -58,6 +58,7 @@ class HomeController extends Controller
         }
 
         $family_user = \DB::select('select * from users,members,families,tuzukigaras where users.id = members.user_id and members.family_id = families.id and  tuzukigaras.id = members.tuzukigara_id and members.family_id = ? order by users.id asc',[$first_family->id]);
+        
         return view('home',compact('user','family','first_family','family_user'));
     }
 
