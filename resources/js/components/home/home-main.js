@@ -95,6 +95,7 @@ export default class Home extends React.Component {
                         str += '<p class="dateTime float-right">' + v.date + '</div>';
                         str += '<div class="clear"></div>';
                         output.innerHTML += str;
+                        output.scrollIntoView(false);
 
                     } else if (v.uid == userid) {
                         // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
@@ -107,6 +108,7 @@ export default class Home extends React.Component {
                         str += '<p class="dateTime float-left">' + v.date + '</div>';
                         str += '<div class="clear"></div>';
                         output.innerHTML += str;
+                        output.scrollIntoView(false);
                     }
                 }
 
@@ -127,6 +129,7 @@ export default class Home extends React.Component {
                             str += '<p class="dateTime float-right">' + v.date + '</div>';
                             str += '<div class="clear"></div>';
                             output.innerHTML += str;
+                            output.scrollIntoView(false);
 
                         } else if (v.uid == userid) {
                             // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
@@ -139,6 +142,7 @@ export default class Home extends React.Component {
                             str += '<p class="dateTime float-left">' + v.date + '</div>';
                             str += '<div class="clear"></div>';
                             output.innerHTML += str;
+                            output.scrollIntoView(false);
                         }
 
                     }).catch(function (error) {

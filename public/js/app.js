@@ -71050,6 +71050,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       str += '<p class="dateTime float-right">' + v.date + '</div>';
                       str += '<div class="clear"></div>';
                       output.innerHTML += str;
+                      output.scrollIntoView(false);
                     } else if (v.uid == userid) {
                       // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       str += '<div class="myself">';
@@ -71061,6 +71062,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       str += '<p class="dateTime float-left">' + v.date + '</div>';
                       str += '<div class="clear"></div>';
                       output.innerHTML += str;
+                      output.scrollIntoView(false);
                     }
                   }
 
@@ -71082,6 +71084,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       _str += '<p class="dateTime float-right">' + v.date + '</div>';
                       _str += '<div class="clear"></div>';
                       output.innerHTML += _str;
+                      output.scrollIntoView(false);
                     } else if (v.uid == userid) {
                       // str += '<div className="name"><img src="..' + v.icon + '" width="50" height="50" className="rounded-circle float-left img-responsive">名前：' + v.name + '</div>';
                       _str += '<div class="myself">';
@@ -71093,6 +71096,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
                       _str += '<p class="dateTime float-left">' + v.date + '</div>';
                       _str += '<div class="clear"></div>';
                       output.innerHTML += _str;
+                      output.scrollIntoView(false);
                     }
                   })["catch"](function (error) {
                     // A full list of error codes is available at
