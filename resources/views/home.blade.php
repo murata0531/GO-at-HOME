@@ -95,7 +95,7 @@
             }
             .box2 .menu #menu_bar01:checked ~ #list01 li,
             .box2 .menu #menu_bar02:checked ~ #list02 li {
-                height: 50px;
+                height: 70px;
                 opacity: 1;
             }
             .box2 .menu ul {

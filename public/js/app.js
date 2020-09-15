@@ -70830,18 +70830,18 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "box4 col-lg",
+        className: "box4 col-lg",
         id: "folder-box4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "container"
+        className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "d-flex align-items-center justify-content-between p-0"
+        className: "d-flex align-items-center justify-content-between p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "subname p-2 font-weight-bold"
+        className: "subname p-2 font-weight-bold"
       }, "\u5171\u6709"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "p-2 font-weight-bold"
+        className: "p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-        "class": "setting fas fa-cog"
+        className: "setting fas fa-cog"
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         "class": "box5 mt-4 mx-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -70850,7 +70850,7 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
         "class": "btn-up m-0 my-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        "class": "btn btn-outline-info"
+        className: "btn btn-outline-info"
       }, "\u30D5\u30A9\u30EB\u30C0\u3092\u4F5C\u6210"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         htmlFor: "btn2",
         className: "btn btn-outline-success"
@@ -70861,7 +70861,7 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
       }), "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         id: "btn4",
         type: "button",
-        "class": "btn btn-outline-info",
+        className: "btn btn-outline-info",
         onClick: function onClick() {
           var database = firebase.database();
           var userid = user_id;
