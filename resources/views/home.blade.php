@@ -335,7 +335,7 @@
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
-               
+                
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
@@ -401,8 +401,8 @@
                         @endif
                         @endforeach
                         </ul>
-                        <label for="menu_bar03"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></label>
-                        <a href="/home/shared"><input type="button" id="menu_bar03" class="accordion" /></a>
+                        <label for="menu_bar03"><a href="/home/shared"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></a></label>
+                        <input type="button" id="menu_bar03" class="accordion" />
                         <div class="py-2 d-flex align-items-center text-center">
                         <form method="post" name="form1" action="{{route('logout')}}">
                         @csrf
