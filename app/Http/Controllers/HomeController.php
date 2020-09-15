@@ -34,6 +34,11 @@ class HomeController extends Controller
         
         $user = \Auth::user();
         
+            
+        \DB::table('users')
+        ->where('id', \Auth::user()->id)
+        ->update(['final_login' => now()]);
+
 
         $family_query = \DB::table('families')
         ->join('members', 'families.id', '=', 'members.family_id')
