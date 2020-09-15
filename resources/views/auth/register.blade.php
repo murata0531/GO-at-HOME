@@ -431,7 +431,6 @@
                     var originCnt = frm_cnt;
                     
                     frm_cnt++;
-                    alert("a");
                     original
                     .clone()
                     .hide()

@@ -63,21 +63,21 @@ export default class SharedFolder extends React.Component {
     render() {
         return (
             <div>
-                <div class="box4 col-lg" id="folder-box4">
-                    <div class="container">
-                        <div class="d-flex align-items-center justify-content-between p-0">
+                <div className="box4 col-lg" id="folder-box4">
+                    <div className="container">
+                        <div className="d-flex align-items-center justify-content-between p-0">
 
-                            <div class="subname p-2 font-weight-bold">共有</div>
-                            <div class="p-2 font-weight-bold"><i class="setting fas fa-cog"></i></div>
+                            <div className="subname p-2 font-weight-bold">共有</div>
+                            <div className="p-2 font-weight-bold"><i className="setting fas fa-cog"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="box5 mt-4 mx-4">
                     <div class="class col-8 mx-auto">
                         <div class="btn-up m-0 my-3">
-                            <button type="button" class="btn btn-outline-info">フォルダを作成</button>
+                            <button type="button" className="btn btn-outline-info">フォルダを作成</button>
                             <label htmlFor="btn2" className="btn btn-outline-success"><input id="btn2" type="file" onChange={this.filehandleChange}></input>ファイルをアップロード</label>
-                            <button id="btn4" type="button" class="btn btn-outline-info" onClick={
+                            <button id="btn4" type="button" className="btn btn-outline-info" onClick={
                                 function () {
 
                                     let database = firebase.database();
