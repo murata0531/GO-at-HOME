@@ -311,10 +311,19 @@
                 text-align:center;
                 border-radius: 10px;
             }
-            #shareditemstable img {
-                width:500px;
+           
+            #shareupload {
+                display:none;
             }
- 
+            
+            #share-setting {
+                height: 50px;
+                border-bottom: 1px solid #777;
+                /* box4のバックカラー */
+                background-color: #9ACD32;
+                /* /box4のバックカラー */
+            }
+            
         </style>
         
         <title>go @ home</title>

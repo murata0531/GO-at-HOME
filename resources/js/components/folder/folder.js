@@ -16,7 +16,7 @@ export default class SharedFolder extends React.Component {
         let prevTask = Promise.resolve();
 
         let str = '';
-        let shareditems = document.getElementById("shareditemstable");
+        let addshare = document.getElementById("addshare");
 
         database.ref(room).on("child_added", (data) => {
             prevTask = prevTask.finally(async () => {
@@ -26,9 +26,13 @@ export default class SharedFolder extends React.Component {
 
                 await pathReference.child('shared/' + userid + '/' + v.isfile).getDownloadURL().then(function (url) {
 
-                    str += '<tr style="width:200px;"><td><a href=' + url + ' target="_blank" rel="noopener noreferrer">' + '<img src=' + url + '></a></td></tr>';
-                    str += '<tr><td>' + v.isfile + '</td></tr>';
-                    shareditems.innerHTML += str;
+                    str += '<div class="col mb-3"><div class="card">';
+                    str += '<a href=' + url + '><img src="' + url + '" class="card-img-top" alt="..."></a>';
+                    // str += '<div class="card-body"><h5 class="card-title">ファイル名：</h5><p class="card-text">' + isfile + '</p>';
+                    // str += '<a href="' + url + '" class="btn btn-primary btn-sm">ダウンロード</a>';
+                    // str += '</div></div></div>';
+                    str += '</div></div>';
+                    addshare.innerHTML += str;
 
                 }).catch(function (error) {
 
@@ -62,28 +66,29 @@ export default class SharedFolder extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className="box4 col-lg" id="folder-box4">
-                    <div className="container">
-                        <div className="d-flex align-items-center justify-content-between p-0">
 
-                            <div className="subname p-2 font-weight-bold">共有</div>
-                            <div className="p-2 font-weight-bold"><i className="setting fas fa-cog"></i></div>
+            <div>
+                <div class="box4 col-lg" id='share-setting'>
+                    <div class="container">
+                        <div class="d-flex align-items-center justify-content-between p-0">
+                            <div class="subname p-2 font-weight-bold">ファイル保管</div>
+                            <div class="p-2 font-weight-bold"><i class="setting fas fa-cog"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="box5 mt-4 mx-4">
-                    <div class="class col-8 mx-auto">
+                    <div class="class col-10 mx-auto">
                         <div class="btn-up m-0 my-3">
-                            <button type="button" className="btn btn-outline-info">フォルダを作成</button>
-                            <label htmlFor="btn2" className="btn btn-outline-success"><input id="btn2" type="file" onChange={this.filehandleChange}></input>ファイルをアップロード</label>
-                            <button id="btn4" type="button" className="btn btn-outline-info" onClick={
+                            <button type="button" class="btn btn-outline-info">フォルダを作成</button>
+                            <label htmlFor="shareupload" className="btn btn-outline-info" id="sharelabel"><input type="file" id="shareupload"></input>ファイルをアップロード</label>
+
+                            <button type="button" class="btn btn-outline-success" onClick={
                                 function () {
 
                                     let database = firebase.database();
                                     const userid = user_id;
                                     let room = "shareduser" + userid;
-                                    let btn2 = document.getElementById('btn2');
+                                    let btn2 = document.getElementById('shareupload');
 
                                     let now = new Date();
 
@@ -115,15 +120,13 @@ export default class SharedFolder extends React.Component {
                                     }
                                     btn2.value = '';
                                 }}>確定</button>
+                        </div>
+                        <div class="card-columns container-fluid p-0">
+                            <div id="addshare">
+
+                            </div>
 
                         </div>
-
-                        <div>
-                            <table id="shareditemstable">
-
-                            </table>
-                        </div>
-
                     </div>
                 </div>
             </div>

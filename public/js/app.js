@@ -70780,7 +70780,7 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
       var pathReference = storage.ref();
       var prevTask = Promise.resolve();
       var str = '';
-      var shareditems = document.getElementById("shareditemstable");
+      var addshare = document.getElementById("addshare");
       database.ref(room).on("child_added", function (data) {
         prevTask = prevTask["finally"]( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
           var v, k;
@@ -70792,9 +70792,13 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
                   k = data.key;
                   _context.next = 4;
                   return pathReference.child('shared/' + userid + '/' + v.isfile).getDownloadURL().then(function (url) {
-                    str += '<tr style="width:200px;"><td><a href=' + url + ' target="_blank" rel="noopener noreferrer">' + '<img src=' + url + '></a></td></tr>';
-                    str += '<tr><td>' + v.isfile + '</td></tr>';
-                    shareditems.innerHTML += str;
+                    str += '<div class="col mb-3"><div class="card">';
+                    str += '<a href=' + url + '><img src="' + url + '" class="card-img-top" alt="..."></a>'; // str += '<div class="card-body"><h5 class="card-title">ファイル名：</h5><p class="card-text">' + isfile + '</p>';
+                    // str += '<a href="' + url + '" class="btn btn-primary btn-sm">ダウンロード</a>';
+                    // str += '</div></div></div>';
+
+                    str += '</div></div>';
+                    addshare.innerHTML += str;
                   })["catch"](function (error) {
                     // A full list of error codes is available at
                     // https://firebase.google.com/docs/storage/web/handle-errors
@@ -70830,43 +70834,42 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "box4 col-lg",
-        id: "folder-box4"
+        "class": "box4 col-lg",
+        id: "share-setting"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container"
+        "class": "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "d-flex align-items-center justify-content-between p-0"
+        "class": "d-flex align-items-center justify-content-between p-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "subname p-2 font-weight-bold"
-      }, "\u5171\u6709"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "p-2 font-weight-bold"
+        "class": "subname p-2 font-weight-bold"
+      }, "\u30D5\u30A1\u30A4\u30EB\u4FDD\u7BA1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        "class": "p-2 font-weight-bold"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-        className: "setting fas fa-cog"
+        "class": "setting fas fa-cog"
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         "class": "box5 mt-4 mx-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        "class": "class col-8 mx-auto"
+        "class": "class col-10 mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         "class": "btn-up m-0 my-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
-        className: "btn btn-outline-info"
+        "class": "btn btn-outline-info"
       }, "\u30D5\u30A9\u30EB\u30C0\u3092\u4F5C\u6210"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-        htmlFor: "btn2",
-        className: "btn btn-outline-success"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        id: "btn2",
-        type: "file",
-        onChange: this.filehandleChange
-      }), "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        id: "btn4",
-        type: "button",
+        htmlFor: "shareupload",
         className: "btn btn-outline-info",
+        id: "sharelabel"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        type: "file",
+        id: "shareupload"
+      }), "\u30D5\u30A1\u30A4\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        type: "button",
+        "class": "btn btn-outline-success",
         onClick: function onClick() {
           var database = firebase.database();
           var userid = user_id;
           var room = "shareduser" + userid;
-          var btn2 = document.getElementById('btn2');
+          var btn2 = document.getElementById('shareupload');
           var now = new Date();
 
           if (btn2.files.length > 0) {
@@ -70889,8 +70892,10 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
 
           btn2.value = '';
         }
-      }, "\u78BA\u5B9A")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
-        id: "shareditemstable"
+      }, "\u78BA\u5B9A")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        "class": "card-columns container-fluid p-0"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        id: "addshare"
       })))));
     }
   }]);

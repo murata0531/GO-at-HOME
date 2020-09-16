@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home/shared', function () {
-//     return view('shared');
-// })->middleware('auth');
+Route::get('/', function () {
+    return view('welcome');
+})->middleware('auth');
 
 Auth::routes();
 Route::post('/userlogout','RegisterController@userlogout');
