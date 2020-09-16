@@ -119,6 +119,11 @@ class HomeController extends Controller
             ->update(['password' => $setting_password]);
         } 
         
+        if($request->has('setting_family_name')){
+            \DB::table('families')
+            ->where('id',$request->family_hidden_id)
+            ->update(['family_name' => $request->setting_family_name]);
+        }
         return redirect('/home');
 
     }

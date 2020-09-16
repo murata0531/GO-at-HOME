@@ -15,7 +15,7 @@ import SharedFolder from "./folder/folder.js";
 import UserNameSetting from './setting/user-name-setting.js';
 import UserEmailSetting from './setting/user-email-setting.js';
 import UserPasswordSetting from './setting/user-password-setting.js';
-
+import HomeNameSetting from './setting/home-name-setting.js'
 export default class App extends Component {
     render() {
         return (
@@ -31,6 +31,8 @@ export default class App extends Component {
             <Route path="/home/useremailsetting" component={UserEmailSetting} />
             <Route path="/home/userpasswordsetting" component={UserPasswordSetting} />
             <Route path="/home/homesetting" component={HomeSetting} />
+            <Route path="/home/homenamesetting" component={HomeNameSetting} />
+            
             <Route path="/home/shared" component={SharedFolder} />
 
             </Switch>
