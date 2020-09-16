@@ -401,7 +401,7 @@
                         @endforeach
                         </ul>
 
-                        <label for="menu_bar03"><a href="/home/shared" class="p-0"><i class="fas fa-folder pr-2" style="color:#fff"></i><span style="color:#fff">共有</span><i class="fas fa-share float-right" style="color:#fff"></i></a></label>
+                        <label for="menu_bar03"><a href="/home/shared" class="p-0"><i class="fas fa-folder pr-2" style="color:#fff"></i><span style="color:#fff">ファイルを保管する</span><i class="fas fa-share float-right" style="color:#fff"></i></a></label>
                         <input type="button" id="menu_bar03" class="accordion" />
                     
                         <div class="py-2 d-flex align-items-center text-center">
