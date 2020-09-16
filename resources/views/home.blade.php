@@ -314,8 +314,7 @@
             #shareditemstable img {
                 width:500px;
             }
-
-            
+ 
         </style>
         
         <title>go @ home</title>
@@ -401,8 +400,10 @@
                         @endif
                         @endforeach
                         </ul>
-                        <label for="menu_bar03"><a href="/home/shared"><i class="fas fa-folder pr-2"></i>共有<i class="fas fa-share float-right"></i></a></label>
+
+                        <label for="menu_bar03"><a href="/home/shared" class="p-0"><i class="fas fa-folder pr-2" style="color:#fff"></i><span style="color:#fff">共有</span><i class="fas fa-share float-right" style="color:#fff"></i></a></label>
                         <input type="button" id="menu_bar03" class="accordion" />
+                    
                         <div class="py-2 d-flex align-items-center text-center">
                         <form method="post" name="form1" action="{{route('logout')}}">
                         @csrf
