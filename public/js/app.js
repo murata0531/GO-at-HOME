@@ -70779,18 +70779,18 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
       var storage = firebase.storage();
       var pathReference = storage.ref();
       var prevTask = Promise.resolve();
-      var str = '';
       var addshare = document.getElementById("addshare");
       database.ref(room).on("child_added", function (data) {
         prevTask = prevTask["finally"]( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-          var v, k;
+          var v, k, str;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
                   v = data.val();
                   k = data.key;
-                  _context.next = 4;
+                  str = '';
+                  _context.next = 5;
                   return pathReference.child('shared/' + userid + '/' + v.isfile).getDownloadURL().then(function (url) {
                     str += '<div class="col mb-3"><div class="card">';
                     str += '<a href=' + url + '><img src="' + url + '" class="card-img-top" alt="..."></a>'; // str += '<div class="card-body"><h5 class="card-title">ファイル名：</h5><p class="card-text">' + isfile + '</p>';
@@ -70821,7 +70821,7 @@ var SharedFolder = /*#__PURE__*/function (_React$Component) {
                     }
                   });
 
-                case 4:
+                case 5:
                 case "end":
                   return _context.stop();
               }

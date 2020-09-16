@@ -15,14 +15,14 @@ export default class SharedFolder extends React.Component {
 
         let prevTask = Promise.resolve();
 
-        let str = '';
+        
         let addshare = document.getElementById("addshare");
 
         database.ref(room).on("child_added", (data) => {
             prevTask = prevTask.finally(async () => {
                 const v = data.val();
                 const k = data.key;
-
+                let str = '';
 
                 await pathReference.child('shared/' + userid + '/' + v.isfile).getDownloadURL().then(function (url) {
 
