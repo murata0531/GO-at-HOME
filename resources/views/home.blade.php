@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
         <style>
             /* header部分ここから↓ */
@@ -141,7 +142,11 @@
             #private-box4 {
                 background-color: #337dab;
             }
-            #user-setting-box4{
+            #user-setting-box4 {
+                background-color:#777777;
+            }
+
+            #family-setting-box4 {
                 background-color:#777777;
             }
 
@@ -324,6 +329,40 @@
                 /* /box4のバックカラー */
             }
             
+            #famsetbox .family label {
+                display: block;
+                margin: 0;
+                padding: 10px;
+                line-height: 1;
+                color: #666;
+                background: #f5f5f5;
+                cursor: pointer;
+            }
+            #famsetbox .family input {
+                display: none;
+            }
+            #famsetbox .family #menu_bar03:checked ~ #list03 li {
+                height: 50px;
+                opacity: 1;
+            }
+            #famsetbox .family ul {
+                margin: 0;
+                padding: 0;
+                background: #f4f4f4;
+                list-style: none;
+            }
+            #famsetbox .family ul li {
+                height: 0;
+                overflow: hidden;
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            #famsetbox .family span {
+                display: block;
+                padding: 15px;
+                text-decoration: none;
+                color: #777;
+            }
         </style>
         
         <title>go @ home</title>
@@ -468,8 +507,7 @@
         
         <script src="{{asset('/js/app.js')}}"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
+        
         
     </body>
 </html>
