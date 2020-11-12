@@ -15,7 +15,7 @@ cp .env.example .env
 
 composer update
 
-npm install cross-env
+npm install
 
 npm run dev
 
