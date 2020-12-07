@@ -10,6 +10,8 @@ Laravel7 + React + firebase
 
 firebase apiキー各自取得
 sky way apiキー各自取得
+
+sky wayはlocalhostかhttpsでしか動作しない
 _____________________________________________________________________
 
 展開
