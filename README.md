@@ -26,3 +26,4 @@ npm install
 
 npm run dev
 
+php artisan command:tuzukigara_insert
