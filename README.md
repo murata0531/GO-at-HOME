@@ -27,3 +27,7 @@ npm install
 npm run dev
 
 php artisan command:tuzukigara_insert
+
+resources/views/home.blade.phpにfirebase apiキーを貼り付ける
+
+resources/views/video.blade.phpにsky way apiキーを貼り付ける
