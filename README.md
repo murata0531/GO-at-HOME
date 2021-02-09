@@ -16,17 +16,17 @@ _____________________________________________________________________
 
 展開
 
-cp .env.example .env
+```
+$ cp .env.example .env
 
-php artisan key:generate
+$ php artisan key:generate
 
-composer update
+$ composer update
 
-npm install
+$ npm install
 
-npm run dev
-
-php artisan command:tuzukigara_insert
+$ php artisan command:tuzukigara_insert
+```
 
 resources/views/home.blade.phpにfirebase apiキーを貼り付ける
 
